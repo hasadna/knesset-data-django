@@ -1,5 +1,7 @@
 # Django-specific APis and modules for working with Knesset data
 
+[![Build Status](https://travis-ci.org/hasadna/knesset-data-django.svg?branch=master)](https://travis-ci.org/hasadna/knesset-data-django)
+
 Part of [Knesset data project](https://github.com/hasadna/knesset-data/)
 
 APIs and Python modules specific to usage with Django.
