@@ -1,0 +1,17 @@
+language: python
+python:
+  - "2.7"
+addons:
+  apt:
+    packages:
+    - antiword
+    - language-pack-he
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+  - pip install .
+  - pip install https://github.com/hasadna/Open-Knesset/archive/e28339da7ca92df96fc79b89351286e2715fcff0.zip#egg=Open-Knesset
+script:
+  - ./manage.py test
+  - ./manage.py syncdb --noinput
+  - ./manage.py migrate
