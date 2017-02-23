@@ -1,4 +1,8 @@
 import logging
+import os
+from backports.tempfile import TemporaryDirectory
+from django.conf import settings
+from knesset_datapackage.root import RootDatapackage
 
 
 class BaseScraper(object):
