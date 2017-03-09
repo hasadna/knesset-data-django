@@ -2,25 +2,32 @@ from .base_scraper import BaseScraper
 
 
 class BaseDatapackageScraper(BaseScraper):
+    DATAPACKAGE_RESOURCE_NAME = None
 
-    def __init__(self):
+    def __init__(self, datapackage=None):
         super(BaseDatapackageScraper, self).__init__()
+        self._datapackage = datapackage
 
-    def _fetch_datapackage_resource_tempdir(self, resource_name, **kwargs):
-        with TemporaryDirectory(prefix="knesset-data-django") as temp_data_root:
-            temp_datapackage_root = os.path.join(temp_data_root, "datapackage")
-            for row in RootDatapackage(temp_datapackage_root).get_resource(resource_name).fetch(**kwargs):
-                yield row
+    def _get_datapackage(self):
+        return self._datapackage
 
-    def _fetch_datapackage_resource_dataroot(self, resource_name, **kwargs):
-        datapackage_root = os.path.join(settings.DATA_ROOT, "datapackage")
-        if not os.path.exists(datapackage_root):
-            os.mkdir(datapackage_root)
-        for row in RootDatapackage(datapackage_root).get_resource(resource_name).fetch(**kwargs):
-            yield row
+    def _get_datapackage_resource(self):
+        return self._get_datapackage().get_resource(self.DATAPACKAGE_RESOURCE_NAME)
 
-    def _fetch_datapackage_resource(self, resource_name, **kwargs):
-        if kwargs.get("load_from_datapackage"):
-            return self._fetch_datapackage_resource_dataroot(resource_name, **kwargs)
-        else:
-            return self._fetch_datapackage_resource_tempdir(resource_name, **kwargs)
+    def _get_datapackage_resource_path(self, relpath=None):
+        return self._get_datapackage_resource().get_path(relpath)
+
+    def _handle_datapackage_item(self, item_data):
+        raise NotImplementedError()
+
+    def log_return_value(self, *args):
+        """
+        logs the return value of _handle_datapackage_item
+        """
+        raise NotImplementedError()
+
+    def scrape_from_datapackage(self, **kwargs):
+        return (self._handle_datapackage_item(item_data) for item_data in self._get_datapackage_resource().fetch_from_datapackage(**kwargs))
+
+    def scrape(self, **kwargs):
+        return (self._handle_datapackage_item(item_data) for item_data in self._get_datapackage_resource().fetch(**kwargs))

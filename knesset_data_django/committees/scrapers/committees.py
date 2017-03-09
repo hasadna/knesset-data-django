@@ -1,26 +1,19 @@
 # encoding: utf-8
 from knesset_data_django.common.exceptions import TooManyObjectsException
-from ...common.scrapers.base_scraper import BaseScraper
+from ...common.scrapers.base_datapackage_scraper import BaseDatapackageScraper
 from ..models import Committee
 
 
-class CommitteesScraper(BaseScraper):
+class CommitteesScraper(BaseDatapackageScraper):
+    DATAPACKAGE_RESOURCE_NAME = "committees"
 
-    def _get_all_active_committees_data(self, has_portal_link):
-        kwargs = {"include": ["committees"]}
-        if has_portal_link:
-            kwargs["main_committees"] = True
-        else:
-            kwargs["active_committees"] = True
-        return self._fetch_datapackage_resource("committees", **kwargs)
-
-    def _update_or_create(self, committee_data):
+    def _handle_datapackage_item(self, committee_data):
         """
         updates or create a committee object based on dataservice_committee
         :param dataservice_committee: dataservice committee object
         :return: tuple(committee, created) the updated or created committee model object and True/False if it was created
         """
-        committee_id = committee_data["id"]
+        committee_knesset_id = committee_data["id"]
         committee_model_data = {
             "name": committee_data["name"],
             "knesset_type_id": committee_data["type_id"],
@@ -36,26 +29,33 @@ class CommitteesScraper(BaseScraper):
             "knesset_note_eng": committee_data["note_eng"],
             "knesset_portal_link": committee_data["portal_link"],
         }
-        committee_qs = Committee.objects.filter(id=committee_id)
+        committee_qs = Committee.objects.filter(knesset_id=committee_knesset_id)
         committee_qs_count = committee_qs.count()
         if committee_qs_count == 1:
             committee = committee_qs.first()
-            [setattr(committee, k, v) for k, v in committee_model_data.iteritems()]
-            created = False
+            needs_update = False
+            for attr, scraped_value in committee_model_data.iteritems():
+                db_value = getattr(committee, attr)
+                if db_value != scraped_value:
+                    needs_update=True
+                    break
+            if needs_update:
+                [setattr(committee, k, v) for k, v in committee_model_data.iteritems()]
+                created, updated, message = False, True, "detected a change in one of the fields, updating committee"
+            else:
+                created, updated, message = False, False, "existing meeting in DB, no change"
         elif committee_qs_count == 0:
-            committee = Committee(id=committee_id, **committee_model_data)
-            created = True
+            committee = Committee(knesset_id=committee_knesset_id, **committee_model_data)
+            created, updated, message = True, False, "created meeting"
         else:
             raise TooManyObjectsException()
-        committee.save()
-        return committee, created
+        if updated or created:
+            committee.save()
+        return committee, created, updated, message
 
-    def scrape_active_committees(self):
-        """
-        updates the active committees in the DB
-        creates new committees / updates data for existing committees
-        :return: generator of return values from _update_or_create_from_dataservice
-        """
-        return (self._update_or_create(committee_data)
-                for committee_data
-                in self._get_all_active_committees_data(has_portal_link=False))
+    def log_return_value(self, committee, created, updated, message):
+        prefix = u"committee {} - {}".format(committee.id, committee.name)
+        if created or updated:
+            self.logger.info(u"{}: {}".format(prefix, message))
+        else:
+            self.logger.debug(u'{}: {}'.format(prefix, message))
