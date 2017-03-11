@@ -15,7 +15,10 @@ Generally, it is meant to contain well documented and tested code that handles t
 * Provide insights / calculations on top of the data in DB
 * Logic to support viewing the data from the DB (but not actually rendering any views)
 
+**Just want to use the project from Open Knesset?** [Check out the usage guide](/USAGE.md)
+
 ### Documentation
 
-* [Development guide](/DEVELOPMENT.md)
-* [Scrapers guide](/SCRAPERS.md)
+* [Usage guide](/USAGE.md) - How to use the knesset-data-django in other projects (e.g. open knesset)
+* [Development guide](/DEVELOPMENT.md) - Details for developers intending to work on Knesset-data-django.
+* [Scrapers guide](/SCRAPERS.md) - Scraping is a main part of this project, this document provides details about the scraping architecture, how to add new scrapers or modify existing scrapers.

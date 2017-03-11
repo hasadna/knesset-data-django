@@ -48,7 +48,7 @@ class CommitteesScraper(BaseDatapackageScraper):
             committee = Committee(knesset_id=committee_knesset_id, **committee_model_data)
             created, updated, message = True, False, "created meeting"
         else:
-            raise TooManyObjectsException()
+            raise TooManyObjectsException("committee_knesset_id={}, matching db ids: {}".format(committee_knesset_id, [c.id for c in committee_qs]))
         if updated or created:
             committee.save()
         return committee, created, updated, message

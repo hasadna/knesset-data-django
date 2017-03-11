@@ -4,6 +4,7 @@ from ..models import CommitteeMeeting, ProtocolPart
 from datetime import datetime
 import os
 import csv
+from ..meetings import find_attending_members
 
 
 class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
@@ -60,9 +61,11 @@ class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
         meeting.save()
 
     def _update_protocol_parts(self, meeting, parts_file_path):
+        attended_ok, attended_message = None, None
         if meeting.parts.count() > 0:
-            return False, "meeting has existing protocol parts, will not reparse"
+            protocol_ok, protocol_message = False, "meeting has existing protocol parts, will not reparse"
         else:
+            protocol_ok = True
             with open(parts_file_path) as f:
                 parts = csv.reader(f)
                 assert parts.next() == ['header', 'body']
@@ -70,25 +73,36 @@ class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
                                                header=part[0].decode('utf8'), body=part[1].decode('utf8'))
                                   for i, part in enumerate(parts)]
             self._save_protocol_parts(meeting, protocol_parts)
-            return True, "inserted protocol parts"
+            protocol_message = "inserted protocol parts"
+            mks, mk_names = self._get_all_mk_names()
+            try:
+                find_attending_members(meeting, mks, mk_names)
+                meeting.save()
+                attended_ok, attended_message = True, "updated meeting attending members"
+                self.logger.debug("committee {}, meeting {} - updated attending members".format(meeting.committee.knesset_id, meeting.knesset_id))
+            except Exception, e:
+                self.logger.exception(e)
+                attended_ok, attended_message = False, "failed to updated attending members: {}".format(e)
+        return protocol_ok, protocol_message, attended_ok, attended_message
 
     def _handle_datapackage_item(self, meeting_data):
+        text_updated, text_message = None, None
+        parts_updated, parts_message = None, None
+        attended_updated, attended_message = None, None
         text_file_path = self._get_datapackage_resource_path(meeting_data["text"])
         parts_file_path = self._get_datapackage_resource_path(meeting_data["parts"])
         cnt, qs = self._get_meetings(meeting_data["committee_id"], meeting_data["meeting_id"])
         ok, error = self._validate_datapackage_item(text_file_path, parts_file_path, cnt)
-        if not ok:
-            return False, error, meeting_data, None, None, None, None
-        else:
+        if ok:
             meeting = qs.first()
             text_updated, text_message = self._update_protocol_text(meeting, text_file_path)
             if not text_updated:
-                parts_updated, parts_message = False, "protocol text not updated, so skipping parts updating as well"
+                parts_updated, parts_message, attended_updated, attended_message = False, "protocol text not updated, so skipping parts updating as well", None, None
             else:
-                parts_updated, parts_message = self._update_protocol_parts(meeting, parts_file_path)
-            return True, None, meeting_data, text_updated, text_message, parts_updated, parts_message
+                parts_updated, parts_message, attended_updated, attended_message = self._update_protocol_parts(meeting, parts_file_path)
+        return ok, error, meeting_data, text_updated, text_message, parts_updated, parts_message, attended_updated, attended_message
 
-    def log_return_value(self, ok, error, meeting_data, text_updated, text_message, parts_updated, parts_message):
+    def log_return_value(self, ok, error, meeting_data, text_updated, text_message, parts_updated, parts_message, attended_updated, attended_message):
         if ok:
             self.logger.debug(text_message)
             self.logger.debug(parts_message)

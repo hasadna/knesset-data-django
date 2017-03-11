@@ -57,8 +57,7 @@ def create_protocol_parts(committee_meeting, delete_existing=False, mks=None, mk
             logger.debug('creating protocol part %s' % i)
             return ProtocolPart(meeting=committee_meeting, order=i, header=part.header,
                                 body=part.body)
-        with CommitteeMeetingProtocol.get_from_text(
-                committee_meeting.protocol_text) as protocol:
+        with CommitteeMeetingProtocol.get_from_text(committee_meeting.protocol_text) as protocol:
             ProtocolPart.objects.bulk_create(
                 list([get_protocol_part(i, part) for i, part in zip(range(1, len(protocol.parts) + 1), protocol.parts)])
             )

@@ -13,13 +13,14 @@ class RootDatapackageScraper(BaseScraper):
     # list of scraper classes which extend the BaseDatapackageScraper class
     # will call these scrapers one by one in tuple order to load the data from the datapackage
     SCRAPERS = (
+        "knesset_data_django.mks.scrapers.members.MembersScraper",
         "knesset_data_django.committees.scrapers.committees.CommitteesScraper",
         "knesset_data_django.committees.scrapers.committee_meetings.CommitteeMeetingsScraper",
         "knesset_data_django.committees.scrapers.committee_meeting_protocols.CommitteeMeetingProtocolsScraper",
     )
 
-    def __init__(self):
-        super(RootDatapackageScraper, self).__init__()
+    def __init__(self, **kwargs):
+        super(RootDatapackageScraper, self).__init__(**kwargs)
         self.datapackage_dir = os.path.join(settings.DATA_ROOT, "datapackage")
         self.datapackage_lock = os.path.join(self.datapackage_dir, "LOCK")
 
@@ -35,14 +36,23 @@ class RootDatapackageScraper(BaseScraper):
                     f.write(".")
                 return True, "datapackage directory was successfully locked"
 
+    def _scrape_instance_value(self, from_datapackage, fetch_kwargs, child_scraper_instance, return_value):
+        # can be used to override scraper functionality during the return generator stream
+        # used for automated testing
+        return return_value
+
+    def _scrape_instance(self, from_datapackage, fetch_kwargs, child_scraper_instance):
+        scrape_func = getattr(child_scraper_instance, "scrape_from_datapackage" if from_datapackage else "scrape")
+        for return_value in scrape_func(**fetch_kwargs):
+            yield self._scrape_instance_value(from_datapackage, fetch_kwargs, child_scraper_instance, return_value)
+
     def _scrape_class(self, from_datapackage, scraper_class, datapackage, fetch_kwargs):
         """
         creates a scraper instance and scrapes from a single scraper class
         returns: (scraper_instance, scraper_item_return_values_generator)
         """
-        scraper = self.get_child_scraper(scraper_class, datapackage=datapackage)
-        scrape_func = getattr(scraper, "scrape_from_datapackage" if from_datapackage else "scrape")
-        return scraper, scrape_func(**fetch_kwargs)
+        child_scraper_instance = self.get_child_scraper(scraper_class, datapackage=datapackage)
+        return child_scraper_instance, self._scrape_instance(from_datapackage, fetch_kwargs, child_scraper_instance)
 
     def _scrape_classes(self, from_datapackage, scraper_classes, datapackage, fetch_kwargs):
         """

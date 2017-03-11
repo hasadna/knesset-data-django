@@ -4,8 +4,8 @@ from .base_scraper import BaseScraper
 class BaseDatapackageScraper(BaseScraper):
     DATAPACKAGE_RESOURCE_NAME = None
 
-    def __init__(self, datapackage=None):
-        super(BaseDatapackageScraper, self).__init__()
+    def __init__(self, datapackage=None, **kwargs):
+        super(BaseDatapackageScraper, self).__init__(**kwargs)
         self._datapackage = datapackage
 
     def _get_datapackage(self):

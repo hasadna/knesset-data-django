@@ -2,9 +2,11 @@ import logging
 
 
 class BaseScraper(object):
+    FUTURISTIC = False  # set to True for experiemental / not fully ready scrapers
 
-    def __init__(self, logger=None):
+    def __init__(self, logger=None, enable_the_future=False):
         self.logger = logging.getLogger(self.__module__) if not logger else logger
+        self.enable_the_future = enable_the_future
 
     def __setattr__(self, key, value):
         if key == "logger":
@@ -16,7 +18,11 @@ class BaseScraper(object):
         scraper_instance = scraper_class(*args, **kwargs)
         if getattr(self, "force_logger"):
             scraper_instance.logger = self.logger
-        return scraper_instance
+        if self.enable_the_future or not scraper_instance.is_futuristic():
+            return scraper_instance
+        else:
+            self.logger.info("skipping scraper {} because it's futuristic".format(scraper_class.__module__))
+            return None
 
     def log_return_value(self, *args):
         """
@@ -26,3 +32,6 @@ class BaseScraper(object):
         other callers might look at this implementation to understand how to log it to other outputs as well
         """
         raise NotImplementedError()
+
+    def is_futuristic(self):
+        return self.FUTURISTIC
