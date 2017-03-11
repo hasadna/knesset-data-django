@@ -3,9 +3,8 @@ from django.test import SimpleTestCase
 from ..scrapers.root_datapackage_scraper import RootDatapackageScraper
 import os
 from ...committees.models import Committee, CommitteeMeeting
-from django.conf import settings
-import logging
 from ..testing.mocks import MockLogger
+import datetime
 
 
 class DatapackageTestCase(SimpleTestCase):
@@ -32,17 +31,28 @@ class DatapackageTestCase(SimpleTestCase):
         self.assertIn("processed 100 items for scraper CommitteesScraper", info_messages)
         self.assertIn("processed 1468 items for scraper CommitteeMeetingsScraper", info_messages)
         self.assertIn("processed 566 items for scraper CommitteeMeetingProtocolsScraper", info_messages)
-        print("\n".join([msg for msg in [u"{}: {}".format(r.levelname, r.getMessage()) for r in logger.all_records] if "2014304" in msg]))
+        print("\n".join([msg for msg in [u"{}: {}".format(r.levelname, r.getMessage()) for r in logger.all_records] if "2014012" in msg]))
 
+    def assert_model(self, model_instance, expected_dict):
+        for field, expected_value in expected_dict.items():
+            if field.endswith(".strip"):
+                actual_value = getattr(model_instance, field[:-6]).strip()
+            else:
+                actual_value = getattr(model_instance, field)
+            self.assertEqual(actual_value, expected_value)
+        return model_instance
 
     def assert_scraped_data(self):
-        # committee
-        committee = Committee.objects.get(knesset_id=2)
-        for field, expected_value in {"knesset_id": 2, "name_eng": "Finance Committee"}.items():
-            self.assertEqual(getattr(committee, field), expected_value)
-        # committee meeting
-        committee_meeting = CommitteeMeeting.objects.get(committee=committee, knesset_id="2014012")
-        print(committee_meeting)
+        committee = self.assert_model(Committee.objects.get(knesset_id=2),
+                                      {"knesset_id": 2, "name_eng": "Finance Committee"})
+        committee_meeting = self.assert_model(CommitteeMeeting.objects.get(committee=committee, knesset_id="2014012"),
+                                              {"date_string": "13/02/2017",
+                                               "date": datetime.date(2017, 2, 13),
+                                               "topics.strip": u"הוראות ליישום משטר כושר פירעון כלכלי של חברת ביטוח מבוסס Solvency II בהתאם לסעיף 35(ג) לחוק הפיקוח על שירותים פיננסיים (ביטוח), התשמ”א - 1981",
+                                               "datetime": datetime.datetime(2017, 2, 13, 13, 30), # 2017-02-13T13:30:00
+                                               "knesset_id": 2014012,
+                                               "src_url": "http://fs.knesset.gov.il//20/Committees/20_ptv_368875.doc"})
+        self.assertTrue(committee_meeting.protocol_text)
 
     def test(self):
         self.given_clean_db()

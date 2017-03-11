@@ -36,7 +36,7 @@ class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
             return True, ""
 
     def _get_meetings(self, committee_id, meeting_id):
-        qs = CommitteeMeeting.objects.filter(committee__id=committee_id, knesset_id=meeting_id)
+        qs = CommitteeMeeting.objects.filter(committee__knesset_id=committee_id, knesset_id=meeting_id)
         cnt = qs.count()
         return cnt, qs
 
