@@ -6,6 +6,10 @@ from django_nose import NoseTestSuiteRunner
 
 class KnessetDataDjangoTestRunner(NoseTestSuiteRunner):
 
+    def __init__(self, **kwargs):
+        kwargs["interactive"] = False
+        super(KnessetDataDjangoTestRunner, self).__init__(**kwargs)
+
     def setup_test_environment(self, **kwargs):
         # Disabling debug/info in testing
         logging.disable(logging.WARNING)
