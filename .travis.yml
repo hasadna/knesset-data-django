@@ -11,7 +11,7 @@ install:
   - pip install -r requirements.txt
   - pip install git+https://github.com/hasadna/knesset-data-python.git@v1.7.1#egg=knesset-data
   - pip install git+https://github.com/hasadna/knesset-data-datapackage.git@v1.0.5#egg=knesset-datapackage
-  - pip install git+https://github.com/hasadna/Open-Knesset/archive/e28339da7ca92df96fc79b89351286e2715fcff0.zip#egg=Open-Knesset
+  - pip install git+https://github.com/hasadna/Open-Knesset.git@e28339da7ca92df96fc79b89351286e2715fcff0#egg=Open-Knesset
   - pip install .
 script:
   - ./manage.py test
