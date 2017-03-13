@@ -52,7 +52,7 @@ class RootDatapackageScraper(BaseScraper):
         returns: (scraper_instance, scraper_item_return_values_generator)
         """
         child_scraper_instance = self.get_child_scraper(scraper_class, datapackage=datapackage)
-        return child_scraper_instance, self._scrape_instance(from_datapackage, fetch_kwargs, child_scraper_instance)
+        return child_scraper_instance, self._scrape_instance(from_datapackage, fetch_kwargs, child_scraper_instance) if child_scraper_instance else None
 
     def _scrape_classes(self, from_datapackage, scraper_classes, datapackage, fetch_kwargs):
         """
@@ -158,11 +158,14 @@ class RootDatapackageScraper(BaseScraper):
         for scraper_class, is_ok, scrape_class_return_value in scrape_classes_return_value:
             if is_ok:
                 scraper_instance, scrape_return_values = scrape_class_return_value
-                i = 0
-                for scrape_return_value in scrape_return_values:
-                    scraper_instance.log_return_value(*scrape_return_value)
-                    i += 1
-                self.logger.info("processed {} items for scraper {}".format(i, scraper_class.__name__))
+                if scraper_instance:
+                    i = 0
+                    for scrape_return_value in scrape_return_values:
+                        scraper_instance.log_return_value(*scrape_return_value)
+                        i += 1
+                    self.logger.info("processed {} items for scraper {}".format(i, scraper_class.__name__))
+                else:
+                    self.logger.debug("skipping scraper {}".format(scraper_class.__name__))
             else:
                 self.logger.error("exception in scraper '{}', continuing to next scraper class".format(scraper_class.__name__))
                 self.logger.exception(scrape_class_return_value)
