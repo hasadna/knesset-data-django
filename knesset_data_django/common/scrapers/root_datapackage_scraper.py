@@ -127,6 +127,24 @@ class RootDatapackageScraper(BaseScraper):
                 shutil.rmtree(self.datapackage_dir)
             return RootDatapackage.load_from_zip(datapackage_zip_file, settings.DATA_ROOT)
 
+    def load_from_directory(self, directory, symlink=True):
+        if not symlink:
+            raise NotImplementedError()
+        else:
+            self.logger.info("loading from local directory '{}'".format(directory))
+            if os.path.exists(self.datapackage_lock):
+                raise Exception("datapackage directory is locked, cannot load another datapackage before lock is removed")
+            else:
+                if os.path.exists(self.datapackage_dir):
+                    if os.path.islink(self.datapackage_dir):
+                        os.remove(self.datapackage_dir)
+                    else:
+                        shutil.rmtree(self.datapackage_dir)
+                os.symlink(directory, os.path.join(settings.DATA_ROOT, "datapackage"))
+                if os.path.exists(self.datapackage_lock):
+                    os.remove(self.datapackage_lock)
+                return os.path.join(settings.DATA_ROOT, "datapackage")
+
     def load_from_url(self, datapackage_zip_url):
         """
         download a zip file from the url and call load_from_file to extract it into the datapackage directory
@@ -148,7 +166,7 @@ class RootDatapackageScraper(BaseScraper):
     def log_load_from_url_return_value(self, load_from_url_return_value):
         zip_file_name, load_from_file_return_value = load_from_url_return_value
         self.logger.info("zip file saved at {}".format(zip_file_name))
-        self.log_load_from_file_return_value(*load_from_file_return_value)
+        self.log_load_from_file_return_value(load_from_file_return_value)
 
     def log_load_from_file_return_value(self, load_from_file_return_value):
         datapackage_dir = load_from_file_return_value

@@ -82,17 +82,17 @@ class DatapackageTestCase(SimpleTestCase):
         if os.environ.get("SKIP_EXTRACT", "") != "1":
             root_datapackage_scraper.logger = logger = MockLogger()
             root_datapackage_scraper.unlock_datapackage()
-            zip_file_name = os.path.join(os.path.dirname(__file__), "datapackage_last_120_days_2017-02-24.zip")
-            root_datapackage_scraper.load_from_file(zip_file_name)
+            root_datapackage_scraper.load_from_directory(os.path.join(os.path.dirname(__file__), "datapackage"))
             self.assertEquals([r.getMessage() for r in logger.info_records],
-                              ["loading from local zip file '{}'".format(zip_file_name)])
+                              ["loading from local directory '{}'".format(os.path.join(os.path.dirname(__file__), "datapackage"))])
         root_datapackage_scraper.logger = logger = MockLogger()
         root_datapackage_scraper.log_scrape_return_value(root_datapackage_scraper.scrape_all(True))
         info_messages = [u"{}".format(r.getMessage()) for r in logger.info_records]
         self.assertIn("processed 946 items for scraper MembersScraper", info_messages)
         self.assertIn("processed 100 items for scraper CommitteesScraper", info_messages)
-        self.assertIn("processed 1468 items for scraper CommitteeMeetingsScraper", info_messages)
-        self.assertIn("processed 566 items for scraper CommitteeMeetingProtocolsScraper", info_messages)
+        self.assertIn("processed 34 items for scraper CommitteeMeetingsScraper", info_messages)
+        self.assertIn("processed 6 items for scraper CommitteeMeetingProtocolsScraper", info_messages)
+        # for debugging (add -s to see output when tests pass)
         print("\n".join([msg for msg in [u"{}: {}".format(r.levelname, r.getMessage()) for r in logger.all_records] if "2014012" in msg or "896" in msg]))
 
     def assert_model(self, model_instance, expected_dict):

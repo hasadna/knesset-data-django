@@ -21,10 +21,10 @@ class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
             return False, "could not find meeting in DB"
         elif meetings_cnt > 1:
             return False, "found more then 1 matching meeting in DB"
-        elif "ERROR: " in text_file_path:
-            return False, "missing text file due to error in datapackage creation: {}".format(text_file_path.split("ERROR: ")[1])
-        elif "ERROR: " in parts_file_path:
-            return False, "missing parts file due to error in datapackage creation: {}".format(parts_file_path.split("ERROR: ")[1])
+        elif text_file_path == "":
+            return False, "missing text file due to error in datapackage creation, see scraper_errors field in datapackage"
+        elif parts_file_path == "":
+            return False, "missing parts file due to error in datapackage creation, see scraper_errors field in datapackage"
         elif not os.path.exists(text_file_path):
             return False, "missing text file {}".format(text_file_path)
         elif not os.path.exists(parts_file_path):

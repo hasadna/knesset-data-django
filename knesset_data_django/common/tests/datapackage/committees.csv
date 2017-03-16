@@ -1,0 +1,178 @@
+id,type_id,parent_id,name,name_eng,name_arb,begin_date,end_date,description,description_eng,description_arb,note,note_eng,portal_link,scraper_errors
+1,1,,ועדת הכנסת,House Committee,,1950-01-01T00:00:00,,"תקנון הכנסת ועניינים הנובעים ממנו; חסינות חברי הכנסת ובקשות לנטילתה; סדרי הבית; המלצות על הרכב הוועדות הקבועות והוועדות לעניינים מסוימים, ויושבי-הראש שלהן; תיחום ותיאום עבודות הוועדות; העברת בקשות המוגשות לכנסת מן הציבור ליושב-ראש הכנסת או לוועדות המתאימות; דיון בתלונות על חברי הכנסת; תשלומים לחברי הכנסת; דיון בבקשות ובעניינים שאינם נוגעים לשום ועדה או שלא נכללו בתפקידי ועדה אחרת.","The Committee deals with the following issues: the Knesset Rules of Procedure and all matters stemming from it; the immunity of Knesset members and requests for lifting it; the rules of the House; recommendations regarding the Parliamentary Groups and personal make-up of the permanent committees and the committes on a particular matter, as well as the appointment of their chairmen; the distribution of functions amongst the committees and coordination between them; decisions regarding the transfer of bills to the appropriate committee; the passing on of requests presented to the Knesset by the public for the Knesset Speaker or one of the Knesset committees; payments to Knesset members; discussions on requests and matters that are not connected to any committee or are not included among the functions of another committee. 
+",,,,knesset,
+2,1,,ועדת הכספים,Finance Committee,,1950-01-01T00:00:00,,תקציב המדינה; מסים לכל סוגיהם; מכס ובלו; מלוות; ענייני מטבע חוץ; בנקאות ושטרי כסף; הכנסות והוצאות המדינה.,"The Committee deals with the following issues: the state budget, all types of taxes, customs duties and excise, loans, matters related to foreign currency, banking and bank notes, state revenue and expenditure.",,,,Finance,
+3,1,,ועדת הכלכלה,Economic Affairs Committee,,1950-01-01T00:00:00,,"בהתאם לסעיף 100 לתקנון הכנסת, תחומי ענייניה של ועדת הכלכלה הם: מסחר ותעשיה אספקה וקיצוב; חקלאות ודיג; תחבורה על כל ענפיה; איגוד שיתופי; תכנון ותיאום כלכלי; פיתוח;  זיכיונות המדינה ואפוטרופסות על הרכוש; רכוש הערבים הנעדרים; רכוש היהודים בארצות האויב; רכוש היהודים שאינם בחיים; עבודות ציבוריות; שיכון. 
+
+לשם הדגמה, במהלך השנים, ובמסגרת חלק מהמושגים והמונחים הכלולים באמור לעיל, עסקת ועדת הכלכלה, בין היתר, באלה:
+תחבורה יבשתית (כולל בטיחות בדרכים, תחבורה ציבורית, רכבת ארצית ומקומית, מערכות הכבישים לרבות כבישי אגרה, ביטוח רכב מנועי וכן תחבורה ימית וטיס), תקשורת ובכלל זה שידורי רדיו וטלוויזיה, טלפוניה נייחת וניידת, דואר, צרכנות, הגבלים עסקיים, היבטים צרכניים ושירות ללקוח בענפי הביטוח הבנקאות, ובכלל זה עמלות ומתן אשראי למשקי בית ולעסקים קטנים, זכויות יוצרים, פיתוח הנגב והגליל, אנרגיה – חשמל, דלק, גז, משאבי טבע (כגון מכרות, ים מלח ועוד), התייעלות אנרגטית ואנרגיה מתחדשת, תיירות, רשות מקרקעי ישראל, דיור ציבורי, מכר דירות, פיקדון על מכלי משקה וחוקי מיחזור וטיפול סביבתי בעלי היבטים כלכליים מובהקים.","The Committee deals with the following issues: Trade and industry, supply and rationing, agriculture and fisheries, all sectors of transportation, cooperative association, economic planning and coordination, development, state concessions and trusteeship over property, the property of absentee Arabs, the property of Jews from enemy states and of Jews who are no longer alive, public works, housing, communications, Israel Land Administration, energy, infrastructure, and water.",,,,Economics,
+4,1,,ועדת החוץ והביטחון,Foreign Affairs and Defense Committee,,1950-01-01T00:00:00,,"פיקוח ובקרה על מדיניות החוץ של המדינה, כוחותיה המזוינים וביטחונה.","The Committee deals with the following issues: the foreign affairs of the state, its armed forces and its security. ",,,,ForeignAffairs,
+5,1,,ועדת הפנים והגנת הסביבה,Internal Affairs and Environment Committee,,1950-01-01T00:00:00,,שלטון מקומי; בניין ערים; כניסה לישראל ומרשם האוכלוסין; אזרחות; עיתונות ומודיעין; עדות; ארגון הדתות של יהודים ושל לא-יהודים; משטרה ובתי-הסוהר; איכות הסביבה.,"The Committee deals with the following issues: local government, town planning, entry into the country and population registration, citizenship, press and intelligence, ethnic communities, the religious organization of Jews and non-Jews, police and prisons. The issue of environment was added to the Interior Committee in the course of the eighth Knesset.",,בתאריך 13.11.2006 הוחלט בוועדת הכנסת לשנות את שם הוועדה מוועדת הפנים ואיכות הסביבה לוועדת הפנים והגנת הסביבה.,,InternalAffairs,
+6,1,,"ועדת החוקה, חוק ומשפט","Constitution, Law and Justice Committee",,1950-01-01T00:00:00,,חוקת המדינה; חוקי-יסוד; חוקים וסדרי משפט.,"The Committee deals with the following issues: the constitution, the basic laws, legislation, and procedures of justice. ",,,,/huka,
+8,1,,"ועדת החינוך, התרבות והספורט","Education, Culture, and Sports Committee",,1950-01-01T00:00:00,,חינוך; תרבות; מדע; אמנות; שידור; קולנוע; ספורט.,"The Committee deals with the following issues: education, culture, science, the arts, broadcasting, cinema, and sports. ",,"החל מהכנסת ה-16, נוסף הספורט לתחומי העיסוק של ועדת החינוך והתרבות, ושמה הוחלף לוועדת החינוך התרבות והספורט.","At the beginning of the 16th Knesset, the subject of sport was added to the jurisdiction of the Education and Culture Committee. The committee was then renamed the Education, Culture, and Sports committee.",Education,
+10,1,,ועדה לענייני ביקורת המדינה,State Control Committee,,1950-01-01T00:00:00,,דיון בדוחות מבקר המדינה ונציב תלונות הציבור; סמכויות על-פי חוק מבקר המדינה וחוקים אחרים; מעמדם וסמכויותיהם של מבקרים פנימיים; הוועדה לענייני ביקורת המדינה רשאית להורות על מינוי ועדת חקירה ממלכתית בעקבות דיון בדוח מבקר המדינה.,"The Committee deals with the following issues: contacts with the State Comptroller and ombudsman; powers based on the State Comptroller Law and other laws; the status and powers of internal controllers. This committee was established in the course of the eighth Knesset. 
+",,,,StateControl,
+11,1,,ועדה לקידום מעמד האישה ולשוויון מגדרי,Committee on the Status of Women and Gender Equality,,1950-01-01T00:00:00,,"קידום מעמד האשה לקראת שוויון בייצוג; בחינוך ובמעמד האישי, וכן למניעת אפליה בשל מין או נטייה מינית בכל התחומים; להקטנת פערים בכלכלה ובשוק העבודה ולמאבק באלימות כלפי נשים.","The Committee deals with the following issues: advancing the status of women towards equality in representation, in education and with regards to personal status; preventing discrimination as a result of gender or sexual preference in all spheres; reducing the economic gaps; violence against women. This committee was given permanent status towards the end of the term of the thirteenth Knesset.",,,,Women,
+12,3,,ועדה מיוחדת למאבק בנגעי הסמים והאלכוהול,Special Committee on Drug and Alcohol Abuse,,1950-01-01T00:00:00,,"סמכויות הוועדה
+שימוש בסמים וסמים מסוכנים, לרבות לצרכים רפואיים, עבירות סמים ועבירות המבוצעות בשל שימוש בסמים מסוכנים, טיפול ושיקום בנרקומנים ונפגעים מסמים, הרשות הלאומית למלחמה בסמים ובשימוש לרעה באלכוהול, מדיניות ציבורית, הסברתית וחינוכית למניעת השימוש בסמים ושימוש לרעה באלכוהול.","This committee addresses the problem of drug and alcohol abuse in Israel. It handles the following specific areas: Supervision of all authorities that deal with drug abuse or its consequences - including law enforcement, the judiciary, prevention, treatment, and rehabilitation; questions regarding the use of dangerous drugs for medicinal purposes; the addiction to drugs and their danger to public health.",,"בתאריך 23.12.13, הכנסת אישרה שינוי שם הוועדה שהיה לפני כן הוועדה למאבק בנגע הסמים.",,Drugs,
+13,1,,ועדת  המדע  והטכנולוגיה,Science and Technology Committee,,1950-01-01T00:00:00,,"מדיניות מחקר ופיתוח אזרחי בישראל, טכנולוגיות מתקדמות, מחקר ופיתוח סביבתי, מחקר מדעי באקדמיה הישראלית למדעים, מחקר מדעי שלא במוסדות להשכלה גבוהה, מכוני מחקר, מדענים ראשיים של כלל משרדי הממשלה, מועצה לאומית למחקר ולפיתוח, קרנות מחקר, מידע ומיחשוב.","The Committee deals with the following issues: Policy on civilian research and development (R&D), advanced technologies, environmental R&D, academic scientific research, non-academic scientific research, research institutes, chief scientists in government offices, National Council of R&D, research foundations, and information/computer technology.",,,,Science,
+14,3,,ועדת האתיקה,Ethics Committee,,1950-01-01T00:00:00,,"ועדת האתיקה פועלת מכוח סעיף 13ד לחוק חסינות חברי הכנסת, זכויותיהם וחובותיהם, התשי”א-1951. 
+ועדת האתיקה מכהנת מאז הכנסת העשירית. הוועדה מורכבת מארבעה חברי הכנסת שממנה יושב ראש הכנסת בהתחשב, בין השאר, בהרכב הסיעתי של הכנסת, שניים מסיעות הקואליציה ושניים מסיעות האופוזיציה. יושב ראש הכנסת קובע את היושב ראש של הוועדה מבין חבריה. יושב ראש הכנסת רשאי למנות גם ממלאי מקום לחברי הוועדה, לתקופה או לנושא מסוים.
+הוועדה עוסקת באופן שוטף הן בהנחיה אתית של חברי כנסת ובמתן חוות דעת ותשובות לשאלות של חברי הכנסת בענייני אתיקה, והן  בשיפוט של חברי הכנסת בשל הפרת כללי האתיקה ובשל הפרה של הוראות מסוימות בחוק שמהותן אתית, ובכלל זה עיסוק  נוסף שלא כדין , היעדרות מעבר למכסה שנקבעה בחוק, ואי הגשת הצהרת הון. 
+הוועדה מאשרת נסיעות של חברי כנסת לחו""ל שאינן במימון הכנסת או במימון עצמי, כגון נסיעות לצורך מתן הרצאות והשתתפות בכנסים. כל הנסיעות הללו מתפרסמות באתר האינטרנט של הוועדה.
+כללי האתיקה שנקבעים על ידי ועדת הכנסת מחייבים את חבר הכנסת לשמור על כבוד הכנסת וכבוד חבריה, לנהוג בדרך ההולמת את מעמדו ואת חובותיו כחבר הכנסת, להימנע משימוש בלתי ראוי בחסינויותיו, ולהקדיש למילוי תפקידו את כל הזמן הדרוש לכך. כללי האתיקה אוסרים על קבלת הנאה חומרית בעד מעשה שעשה בתפקידו או במעמדו כחבר הכנסת ועל ניגוד עניינים בין תפקידו כחבר הכנסת לבין עניינו האישי. 
+בהתאם לכללי האתיקה, כל אדם רשאי להגיש קובלנה נגד חבר הכנסת, כך שחלק מהקובלנות מוגשות על ידי חברי הכנסת נגד עמיתיהם, וחלק מוגשות על ידי אזרחים וגופים שונים.
+במסגרת אחריותה כאמור, רשאית ועדת האתיקה להטיל על חבר הכנסת סנקציות שונות, כגון: הערה, אזהרה, נזיפה ונזיפה חמורה. כמו כן, רשאית ועדת האתיקה לקבוע סנקציות הנוגעות לפעילותו הפרלמנטרית של חבר הכנסת, כגון: הרחקה מישיבות הכנסת, ואיסור הגשת הצעות חוק והצעות לסדר היום.
+ בשל היעדרויות ממושכות מישיבות הכנסת ללא הצדק סביר או עיסוק חבר הכנסת בעיסוק נוסף שלא כדין רשאית הועדה לשלול מחבר הכנסת שכר ותשלומים. 
+ועדת האתיקה אינה רשאית להגביל את זכות ההצבעה של חבר הכנסת.
+ועדת האתיקה מניחה על שולחן הכנסת את החלטותיה העקרונית ואת ההחלטות להטיל סנקציות על חברי הכנסת ומפרסמת אותן באתר האינטרנט של הוועדה.","The Ethics Committee functions on the authority of Section 13d of the Law of Immunity of Knesset Members, their Rights and Obligations, 1951.
+
+The committee is responsible for the jurisdiction over Knesset Members who have violated rules of ethics of the Knesset or have been involved in illegal business outside the Knesset.
+
+Rules of ethics of the Knesset demand that any member dedicates his/her time as needed to protect the honor of the Knesset and its members, and to behave in an appropriate and fitting manner as bespeaks his/her public position without taking advantage of the right to immunity. The rules of ethics also prohibit the acceptance of gifts while in office and the conflict of interest between his job as a Knesset member and any other position.
+
+Within the framework of its responsibility, the Ethics Committee may place various sanctions on a Knesset member. These sanctions include a comment, an admonition, a reprimand, or a severe reprimand. Any decision of the Ethics Committee may be publicized with the name of the relevant Knesset member. Similarly, the committee may place any of the following restrictions on a Knesset member’s parliamentary activity: Suspension from Plenum sittings for up to six months; revoking the right to speak in the Plenum or in a committee for up to ten meetings; prohibiting the MK from proposing a bill or making a motion for the agenda. 
+
+A consistent and protracted absence from Knesset sittings without a justified reason, or the engagement in business outside of the Knesset, or serving in a public position during tenure as an MK are all acts that provide grounds for the Ethics Committee to withhold an MK’s salary or other payments.
+
+The Ethics Committee is not allowed to restrict the right of a Knesset member to vote.
+",,,,Ethics,
+19,3,,ועדה מיוחדת לפניות הציבור,Special Committee for Public Petitions,,1950-01-01T00:00:00,,"סמכויות הוועדה
+1.טיפול ומתן מענה שוטף לפניות הציבור שמגיעות לוועדה מאזרחים ומארגונים שונים.
+2.קיום קשר שוטף עם משרדי הממשלה ועם נציבי פניות ציבור בגופים שונים, תוך הבטחת זכויותיהם וסמכויותיהם לטיפול בפניות הציבור במוסדותיהם.
+3.הסדרת נושא הטיפול בפניות הציבור במוסדות הממשלתיים והציבוריים לשם קביעת נורמות טיפול אחידות ככל האפשר בין כל הגופים שעוסקים בנושא.
+4.שמירה והגנה על מקבלי שירותים ציבוריים.
+5.יצירת שיתוף פעולה עם משרדי הממשלה וגורמים שונים בניסיון להיטיב את השירות הניתן לאזרח.
+6.קיום דיונים בנושאים מגוונים הנוגעים למצוקות הפרט, הצרכנים ומקבלי השירותים הציבוריים.",,,,,Petitions,
+25,3,,ועדה מיוחדת לזכויות הילד,Special Committee for the Rights of the Child,,1950-01-01T00:00:00,,"סמכויות הוועדה
+הגנה על ילדים וקידום מעמד ילדים ובני נוער, במטרה לממש את זכויותיהם ברוח האמנה הבינ""ל לזכויות הילד, לרבות מימוש העקרונות של טובת הילד, אי אפליה, הזכות להתפתחות בתנאים נאותים, וזכות של ילדים ובני נוער להשמיע את דעתם בעניינים הנוגעים להם.",The Committee deals with the following issues: The protection of children and youth; the advancement of their status  - with the goal of exercising their rights according to the International Agreement on Children`s Rights; ensuring that children are provided with nourishing environments; helping youth express their needs and concerns.,,,,Children,
+27,1,,"ועדת העלייה, הקליטה והתפוצות","Committee for Immigration, Absorption and Diaspora Affairs",,1950-01-01T00:00:00,,עלייה; קליטה; הטיפול ביורדים; חינוך יהודי וציוני בגולה; מכלול הנושאים הקשורים בעניינים אלה והנמצאים בתחום טיפולו של המוסד לתיאום בין ממשלת ישראל להסתדרות הציונית העולמית ובין ממשלת ישראל לסוכנות היהודית.,"The Committee deals with the following issues: immigration, absorption, dealing with emigrants, Jewish and Zionist education in the diaspora, all the issues raised in the contacts between the Government, the World Zionist Organization and the Jewish Agency. This committee was established in the course of the ninth Knesset.",,,,Immigration,
+28,1,,"ועדת העבודה, הרווחה והבריאות","Labor, Welfare and Health Committee",,1950-01-01T00:00:00,,עבודה; ביטחון סוציאלי כולל מערכת הבטחת הכנסה; המוסד לביטוח לאומי; בריאות; סעד; שיקום; נכים ושיקומם לרבות נכי צה”ל ומשפחות נפגעי מלחמה וכן נפגעים אחרים; עבריינים צעירים; גמלאות ותגמולים; חוקת התשלומים לחיילים ולמשפחותיהם.,"The Committee deals with the following issues: labor; social security including the system for guaranteeing a minimum income; the National Insurance Institute; health; welfare; rehabilitation; the disabled and their rehabilitation, including disabled soldiers and the families of the victims of warfare and other victims; juvenile delinquents; pensions and benefits; payments to soldiers and their families. Until the end of the term of the eighth Knesset, there were two separate committees: one for labor and the other for public services. ",,,,Labor,
+29,6,,ועדה משותפת לתקציב הביטחון,Joint Committee for the Defense Budget,,1950-01-01T00:00:00,,,,,,,,
+43,5,3,ועדת המשנה למאבק בתאונות דרכים בראשות חבר הכנסת דוד צור ,Subcommittee for the War on Traffic Accidents,,2013-08-28T00:00:00,,,,,,,,
+59,5,2,ועדת המשנה למגזר ערבי,Subcommittee for the Arab Sector,,2014-03-11T00:00:00,,,,,,,,
+78,5,8,ועדת המשנה לספורט,Subcommittee for Sports,,1950-01-01T00:00:00,,"הוועדה רשאית לעסוק בנושאים:
+1. מניעת אלימות בספורט.
+2. סדר עדיפויות בחלוקת הקצבות לליגות הגבוהות ע""י מועצת ההימורים והסכמי השיווק של הטוטו-וינר.
+3. הנגשת הספורט לספורטאים שומרי שבת.
+תוקף פעילות הוועדה - מיום הקמתה ועד תחילת פגרת הקיץ 2016.",,,,,,
+87,5,4,ועדת המשנה לכח אדם בצה”ל ,Subcommittee for Personnel in the IDF,,2015-05-30T00:00:00,,,,,,,,
+196,5,10,"ועדת המשנה לנושא ביטחון, יחסי חוץ וקשרי מסחר בינלאומיים","Subcommittee for International Security, Relations, and Trade",,2013-05-06T00:00:00,,,"ועדת המשנה לנושא ביטחון, יחסי חוץ וקשרי מסחר בינלאומיים",,,,,
+209,6,,ועדה משותפת לתקציב הכנסת,Joint Committee for the Knesset Budget,,2013-05-13T00:00:00,,,,,,,,
+215,5,4,ועדת המשנה לבחינת מוכנות העורף במצבי חירום,Subcommittee for the Examination of Home-Front Readiness,,1950-01-01T00:00:00,,,,,,,,
+249,5,2,ועדת המשנה לעסקים קטנים ובינוניים,Subcommittee for Small and Mid-Sized Businesses,,2014-01-10T00:00:00,,,,,,,,
+288,5,3,ועדת משנה לבטיחות בדרכים,Subcommittee for road safety,,2015-08-27T00:00:00,,,,,,,,
+308,6,,"ועדה משותפת לוועדת החוקה, חוק ומשפט וועדת החוץ והביטחון לפי סעיף 4(ה) לחוק האזנת סתר",Joint Committee for the Wiretapping Law,,1950-01-01T00:00:00,,,,,,,,
+312,5,28,ועדת משנה לתקנות חוק שוויון זכויות לאנשים עם מוגבלות,Subcommittee for the Regulations for Equal Rights for the Handicapped Law,,2013-04-22T00:00:00,,,,,,,,
+331,5,4,ועדת המשנה לנושאים ביטחוניים ואזרחיים ביהודה ושומרון  ,Subcommittee for Judea and Samaria,,2015-05-30T00:00:00,,,,,,,,
+335,6,,ועדה משותפת לעניין חוק נכסים של נספי שואה,Joint committee for the Property Holocaust Survivors Law,,2013-06-17T00:00:00,,,,,,,,
+499,5,4,"ועדת המשנה למודיעין, שירותים חשאיים ושבויים ונעדרים","Subcommittee for Intelligence, Secret Services, Captives and Missing soldiers",,2015-05-30T00:00:00,,,,,,,,
+500,5,4,ועדת המשנה למוכנות ולביטחון שוטף,Subcommittee for Readiness and Continuous Security,,2015-05-30T00:00:00,,,,,,,,
+501,5,4,ועדת המשנה לבחינת מוכנות העורף ,Subcommittee for the Readiness of the Home Front ,,2016-06-29T00:00:00,,,,,,,,
+503,5,4,ועדת המשנה למדיניות חוץ והסברה,Subcommittee for Foreign Policy and Public Relations,,2015-05-30T00:00:00,,,,,,,,
+510,5,13,ועדת המשנה לנושא החלל,Subcommittee on Space ,,2016-01-18T00:00:00,,,,,,,,
+516,5,3,ועדת משנה לתחבורה ציבורית,Subcommittee for Public Transportation,,2012-02-15T00:00:00,,,,,,,,
+520,5,28,ועדת משנה לנושא: פנסיה בקיבוץ המתחדש  ,Subcommittee for Pensions in the Evolving Kibbutz,,2014-01-06T00:00:00,,,,,,,,
+525,6,,הוועדה המשותפת לוועדת הכלכלה ולוועדה לקידום מעמד האישה בהתאם לחוק זכויות הדייר בדיור הציבורי,Joint Economics-Status of Women Committee for the Public Housing Law,,2014-07-10T00:00:00,,,,,,,,
+527,5,11,ועדת המשנה למאבק בסחר בנשים ובזנות,Subcommittee on Combating Trafficking in Women and Prostitution  ,,2013-06-04T00:00:00,,,,,,,,
+528,6,,הועדה משותפת בנושא נפגעים באירועי ספורט המוניים וגל אירועי גזענות ואלימות בספורט,Joint Committee on Victims of Violence and Racism in Sports,,2013-06-10T00:00:00,,,,,,,,
+537,5,2,ועדת המשנה לענין תקנות ניירות ערך (זירת סוחר לחשבונו העצמי),Subcommittee for Securities  Regulations,,2013-08-06T00:00:00,,,,,,,,
+538,6,,"ועדה משותפת של ועדת החוץ והביטחון וועדת החוקה, חוק ומשפט בהתאם לחוק שירות ביטחון - פטור מטעמי הכרה דתית
+",Joint Defense-Law Committee in Accordance With the Military Service Law - Exemption for Religious Reasons,,2013-10-21T00:00:00,,,,,,,,
+540,6,,ועדה משותפת כלכלה - כספים לקידום התחרות בענף המזון,Joint Economics-Finance Committee for the Promotion of Competition in the Food Sector,,2013-11-20T00:00:00,,,,,,,,
+541,5,2,ועדת המשנה לביטוח,Subcommittee for Insurance,,2013-06-24T00:00:00,,,,,,,,
+542,5,28,"ועדת המשנה לעניין תוכנית ""מעגלי תעסוקה"" של משרד הכלכלה","Subcommittee for the ""Cycle of Employment"" program of the Economics Ministry",,2014-01-20T00:00:00,,,,,,,,
+543,6,,"ועדה משותפת של ועדת החוקה, חוק ומשפט, ועדת הפנים והגנת הסביבה וועדת המדע והטכנולוגיה לפי חוק אמצעי זיהוי ביומטריים",Joint Science and Internal Affairs and Environment Committee on Biometric Identification,,2015-06-22T00:00:00,,,,,,,,exception generating committees: invalid response status code: 500
+544,5,3,ועדת משנה לפיקוח על יישום חוק קידום התחרות בענף המזון בראשות חבר הכנסת יעקב אשר,Subcommittee on Supervision Over the Implementation of the Promotion of Competition in the Food Industry Law,,2014-03-05T00:00:00,,,,,,,,
+545,5,3,ועדת משנה לקידום אנרגיה ירוקה בראשות חבר הכנסת חנא סוויד,Subcommittee on the Development of Green Energy   ,,2014-03-19T00:00:00,,,,,,,,
+546,5,2,ועדת המשנה למאבק בהון השחור,Subcommittee for the Battle Against Undeclared Funds   ,,2014-04-07T00:00:00,,,,,,,,
+548,6,28,"ועדה משותפת לדיון בהצעות חוק הביטוח הלאומי (חישוב דמי לידה למבוטחת עצמאית), התשע""ד-2014","Joint Committee to Discuss the National Insurance Law (Calculation of Childbirth Allowance for Independent Policyholder), 2014",,2014-05-28T00:00:00,,,,,,,,
+554,6,11,"ועדה משותפת לדיון בהצעת חוק למניעת הטרדה מינית (תיקון - העברת נטל ההוכחה במקרה של פיטורין בשל הגשת תלונה על הטרדה מינית), התשע""ג-2013","Joint Committee to Discuss the Prevention of Sexual Harassment Law, 2013  ",,2014-06-01T00:00:00,,,,,,,,
+559,5,2,ועדת המשנה לטיפול ולתקצוב נושא השמיטה,"Subcommittee for Managing and Budgeting the ""Shmita Year"" ",,2014-06-16T00:00:00,,,,,,,,
+561,5,3,"ועדת משנה לנושא הספקת גז טבעי לתעשייה, בראשות חה""כ אבישי ברוורמן","Subcommittee on the Supply of Natural Gas to Industry, Chaired by MK Avishay Braverman",,2014-08-12T00:00:00,,,,,,,,
+562,5,3,"ועדת משנה לנושא תשתיות התעופה האזרחית בישראל, הבינלאומית והפנים-ארצית בראשות ח""כ יצחק וקנין","Subcommittee on Civil Aviation Infrastructure in Israel, Chaired by MK Yitzhak Vaknin",,2015-11-02T00:00:00,,,,,,,,
+565,6,,"ועדה משותפת לוועדת הכלכלה ולוועדת החינוך, התרבות והספורט לפי חוק הרשות השניה לטלוויזיה ורדיו","Joint Committee of the Economic Affairs Committee and the Education, Culture, and Sports Committee for the Second Authority Law",,2014-12-08T00:00:00,,,,,,,,
+569,5,5,ועדת משנה לנושא כבאות והצלה ,Subcommittee for Fire and Rescue Services ,,2015-06-23T00:00:00,,,,,,,,
+570,5,5,ועדת משנה לבדיקת סוגיות תכנון וסביבה במפרץ חיפה,Subcommittee for Examining Planning and Environment Issues at Haifa Bay ,,2015-07-13T00:00:00,,,,,,,,
+571,3,,ועדה מיוחדת ליישום הנגשת המידע הממשלתי ועקרונות שקיפותו לציבור,Special Committee for the Transparency and Accessibility of Government Information    ,,2015-07-13T00:00:00,,"סמכויות הוועדה יכללו ""יישום המידע הממשלתי ברוח חופש המידע; בחינת סוגי המידע העומדים לרשות הציבור או לעיונו; גיבוש עקרונות של שקיפות ודיווחיות של גופי הממשל"".",,,,,GovInfo,
+572,3,,הוועדה המיוחדת לדיון בהצעת חוק התכנון והבניה (תיקון - פיצול דירות) ובסעיפים מהצעת חוק ההסדרים,Special Committee to Discuss the Bill for Increasing Competition and Reducing Concentration in Israel's Banking Market ,,2015-07-14T00:00:00,,"הוועדה הוקמה לדון בהצעת החוק הרשות הממשלתית להתחדשות עירונית, לשם הכנתה לקריאה שנייה וקריאה שלישית. עם הזמן הועברו לטיפולה של הוועדה הצעות חוק הקשורות לתכנון ובנייה ולנושאים כלכליים אחרים, וכן רפורמות ממשלתיות. 
+
+תכנון ובנייה – הצעות חוק: 
+התכנון והבנייה (תיקון מס' 103 הוראת שעה) (28.07.15)
+התכנון והבנייה (הוראת שעה) (תקנות שבס) (22.12.15) 
+התכנון והבנייה (תיקון מס' 108) (הוראת שעה – חובת מתן הקלה לתוספת דירות למגורים- 3 חדרים) (25.07.16)
+הרשות הממשלתית להתחדשות עירונית (3.8.16)
+פינוי ובינוי (הסכמים לארגון עסקאות פינוי ובינוי) 
+פינוי ובינוי (פיצויים) (תיקון מס' 4) (פינוי בשל סירוב בלתי סביר) 
+התכנון והבנייה (תיקון – פיצול דירות) (הוראת שעה) (3.1.17)
+
+נושאים כלכליים – הצעות חוק:
+פרק ט' מתוך הצעת חוק התוכנית הכלכלית לשנות התקציב 2015–2016 תיקון חוק הבנקאות (רישוי) התשמ""א-1981 (4.11.15) 
+לתיקון פקודת מס הכנסה (תיקון מס' 218- קרנות ריט) (21.3.16)
+הפיקוח על שירותים פיננסיים (שירותים פיננסיים מוסדרים) (18.07.16) 
+הפיקוח על שירותים פיננסיים (רשות שוק ההון) (18.03.16) 
+פרק ט' (הגברת התחרות באשראי קמעונאי) מתוך הצעת חוק התוכנית הכלכלית (תיקוני חקיקה ליישום המדיניות הכלכלית לשנות התקציב 2017 ו-2018), אגודות אשראי ומנפיק (21.12.16)
+הגברת התחרות ולצמצום הריכוזיות בשוק הבנקאות בישראל (תיקוני חקיקה) 
+
+רפורמות (נוספות) בהחלטת הממשלה: 
+פרק ח' (הקמת רשות החשמל) מתוך הצעת חוק התוכנית הכלכלית (תיקוני חקיקה ליישום המדיניות הכלכלית לשנות התקציב  2015–2016) (3.11.15)
+פרק י""ג (תקינה) מתוך הצעת חוק התוכנית הכלכלית (תיקוני חקיקה ליישום המדיניות הכלכלית לשנות התקציב 2017 ו-2018) ( 21.12.16)
+השידור הציבורי הישראלי (תיקון מס' 6) (3.1.17) 
+פרק י""א (הגבלת שוק ההימורים) מתוך הצעת חוק ההתייעלות הכלכלית (תיקוני חקיקה להשגת יעדי התקציב לשנות התקציב 2017 ו-2018)",,,,,Urban,
+573,6,,"ועדה משותפת לוועדת החוקה, חוק ומשפט ולוועדת הכספים לפי חוק ביטוח רכב מנועי",Committee for Motor Vehicle Insurance,,2015-07-27T00:00:00,,,,,,,,
+575,5,183,ועדת משנה לבחינת בעיית העובדים הזרים  ,Subcommittee on Foreign Workers,,2015-08-27T00:00:00,,,,,,,,
+576,6,,"ועדה משותפת של ועדת הכספים וועדת העבודה לדיון בסעיפים 31 ו-32 בהצ""ח ההתייעלות הכלכלית לשנות התקציב 2015 ו-2016","Joint committee of the Finance Committee and the Labor Committee regarding Articles 31 and 32 of the Economic Efficiency budget bill, 2015 -2016",,2015-09-08T00:00:00,,,,,,,,
+577,5,8,ועדת משנה לצער בעלי חיים,Subcommittee for cruelty towards animals,,2015-10-19T00:00:00,,,,,,,,
+578,6,,ועדה משותפת חוץ וביטחון ופנים לדיון בהארכת תוקף חוק האזרחות והכניסה לישראל,Joint Committee to Discuss the Extension of the Validity of the Citizenship and Entry into Israel Law  ,,2015-10-21T00:00:00,,,,,,,,
+579,5,3,ועדת המשנה לבחינת הגורמים למחסור במזון בתקופת החגים,Subcommittee to Examine the Causes of the Food Shortage during the Holiday Season  ,,2015-10-27T00:00:00,,,,,,,,
+580,5,28,ועדת משנה לעניין הרפורמה בבריאות הנפש,Subcommittee on Mental Health Reform,,2015-10-26T00:00:00,,,,,,,,
+581,5,28,ועדת משנה לעניין מעמד הקשיש,Subcommittee on the Status of the Elderly ,,2015-10-26T00:00:00,,,,,,,,
+582,5,28,ועדת משנה לטיפול בצעירים וצעירות חסרי בית,Subcommittee to Care for Homeless Youngsters,,2015-10-26T00:00:00,,,,,,,,
+583,6,,ועדה משותפת חוץ וביטחון-חוקה לעניין הצורך להכריז על מצב חירום,Joint Committee for the Need to announce a state of Emergency,,2015-10-26T00:00:00,,,,,,,,
+584,5,3,ועדת משנה לקידום עסקים קטנים ובינוניים,Subcommittee for the Promotion of Small and Medium-Sized Businesses ,,2015-12-22T00:00:00,,,,,,,,
+587,6,,"ועדה משותפת לוועדת העבודה, הרווחה והבריאות וועדת החוץ והביטחון לפי חוק השירות הלאומי-אזרחי, התשע""ד-2014","Joint Committee in Accordance with the National-Civil Service Law, 2014",,2015-12-30T00:00:00,,,,,,,,
+591,6,,"ועדה משותפת של ועדת העבודה הרווחה והבריאות וועדת העליה, הקליטה והתפוצות לדיון בהצעת חוק לתיקון פקודת רופאי השיניים (מספר 6) ",Joint Committee Affairs to Discuss the Bill to Amend the Dentists' Directive,,2015-12-30T00:00:00,,,,,,,,
+593,6,,"ועדה משותפת לוועדה המיוחדת לדיון בהצעות חוק הרשות הממשלתית להתחדשות עירונית, הצ""ח שירותים פיננסיים והצ""ח לתיקון פקודת מס הכנסה ולוועדת הכלכלה",Joint Committee of the Economic Affairs Committee and the Special Committee to Discuss the National Authority for Urban Renewal Bill,,2016-02-18T00:00:00,,,,,,,,exception generating committees: invalid response status code: 500
+594,5,13,ועדת המשנה לנושא קידום טכנולוגיות לאנרגיה מתחדשת - פיקוח ומעקב אחר יישום החלטות ועידת פריז,Subcommittee for Advancing Technologies for Renewable Energy ,,2016-02-16T00:00:00,,,,,,,,
+597,6,,"ועדה משותפת לוועדת הפנים והגנת הסביבה וועדת הכלכלה לדיון בהצעת חוק המים (תיקון מספר 27), התשע""ו-2016 (מ/1008) ","Joint Committee to Discuss the Water Bill (amendment no. 27), 2016",,2016-03-15T00:00:00,,,,,,,,exception generating committees: invalid response status code: 500
+598,5,1,ועדת משנה לדיון בהמלצות לשינויים בתנאי חברי הכנסת והיועצים הפרלמנטריים,Subcommittee on the Recommendations to Change the Wages and Work Conditions of Knesset Members and Parliamentary Advisors,,2016-03-15T00:00:00,,,,,,,,
+599,5,1,ועדת משנה של ועדת הכנסת לדיון בנושא: ייצוג הכנסת על ידי חברי כנסת ושרים לשעבר בטכסי זיכרון לחללי מערכות ישראל ולנפגעי פעולות האיבה,Subcommittee to Discuss MKs and Ministers Representing the Knesset at Ceremonies Marking the Day of Remembrance for Fallen Soldiers ,,2016-03-16T00:00:00,,,,,,,,
+602,6,,ועדה משותפת לוועדה המיוחדת להתחדשות עירונית ולוועדת החוקה בהצעת חוק פינוי בינוי (פיצויים)(תיקון מס 4,"Joint Committee on evacuation and 
+construction",,2016-03-22T00:00:00,,,,,,,,
+604,6,,"ועדה משותפת של ועדת המדע וועדת החוקה, חוק ומשפט, לפי חוק פיקוח אלקטרוני על עצור ועל אסיר משוחרר על תנאי","Joint Committee of the ScienceCommittee and the Constitution Committee, According to the Law for the Electronic Monitoring Monitoring of Detainees ",,2016-03-22T00:00:00,,,,,,,,
+605,5,8,ועדת משנה לחינוך בלתי פורמלי,Subcommittee for Informal Education,,2016-05-08T00:00:00,,,,,,,,
+606,5,1,ועדת המשנה לעניין ציר עוקף חוסן,Subcommittee for the Hussan Bypass Road,,2016-05-17T00:00:00,,מעקב אחר קידום פיתרון הולם לנושא הגברת הביטחון בציר עוקף חוסן.,,,,,,
+607,5,6,ועדת המשנה לעניין אישור צו העונשין ,Subcommittee on the Approval of the Penal Order,,2016-06-19T00:00:00,,,,,,,,
+608,5,5,ועדת משנה לענייני תכנון ובנייה ברשויות הדרוזיות,Subcommittee for Planning and Construction in Druze Local Authorities ,,2016-06-20T00:00:00,,,,,,,,
+609,5,13,ועדת המשנה לבחינה ומעקב אחר הפקת גז ונפט בטכנולוגיות לא קונבנציונליות ומתחדשות,Subcommittee for Examining and Monitoring the Production of Gas and Oil Using Unconventional and Renewable Technologies ,,2016-07-05T00:00:00,,,,,,,,
+610,3,,הוועדה המיוחדת לצדק חלוקתי ולשוויון חברתי,Special Committee for Distributive Justice and Social Equality ,,2016-07-25T00:00:00,,"סמכויות הוועדה:
+א. עניינה של הוועדה המיוחדת לצדק חלוקתי ולשוויון בחלוקת משאבים צודקת - חומרית ותרבותית. מטרת העל היא צמצום הפערים בחברה בתחומי הבריאות, החינוך, הרווחה, התרבות והקרקעות, כמפורט להלן:
+1. צמצום הפערים בין תושבי המרכז לתושבי הפריפריה בתחומי הבריאות, החינוך, הרווחה והתרבות.
+2. עידוד רשויות מרובות מקרי רווחה.
+3. חלוקה מחודשת של דיור ציבורי עתידי.
+4. חלוקת מחודשת של קרקעות וגבולות אזורי תעשיה ברשויות המקומיות. 
+5. חלוקה מחודשת של תקציבי ספורט ותרבות.
+6. הטבות מס ליישובי הפריפריה.
+7. מיקום ופיזור של מבני ציבור ברחבי הארץ.
+8. ייצוג הולם של בנות ובני קבוצות תרבותיות, אתניות, מגדריות, דתיות ולאומיות במשרות ציבוריות.
+ב. הוועדה המיוחדת תדון בהצעות חוק, ואולם לא תועבר לוועדה הצעת חוק לאחר שחלפה שנה מיום הקמתה. 
+יובהר כי הוועדה המיוחדת תהיה רשאית להמשיך ולדון בהצעות חוק הנמצאות על שולחנה במועד האמור, לרבות הצעת חוק שהכינה לקריאה הראשונה וחוזרת לדיון בה לאחר הקריאה הראשונה.",,,,,SocialEquality,
+611,5,8,ועדת המשנה לחינוך בלתי פורמלי,Subcommittee for Informal Education,,2016-03-30T00:00:00,,,,,,,,
+612,6,,"ועדה משותפת לדיון בהצעת חוק מימון מפלגות (תיקון - הגדרת גוף פעיל בבחירות) התשע""ו-2016 (פ/2785/20) של ועדת הכנסת וועדת החוקה חוק ומשפט","Joint Committee of the House Committee and the Constitution, Law and Justice Committee to Discuss the Political Parties (Financing) Bill",,2016-08-03T00:00:00,,,,,,,,exception generating committees: invalid response status code: 500
+613,5,4,ועדת המשנה להגנה בסייבר,Subcommittee for Cyber Defense,,2015-05-30T00:00:00,,,,,,,,
+614,5,4,ועדת המשנה לתכנון לאומי,Subcommittee for National Planning,,2015-05-30T00:00:00,,,,,,,,
+615,5,6,ועדת המשנה ללוחמה משפטית,"Subcommittee for Legal Warfare
+
+",,2015-05-30T00:00:00,,,,,,,,
+616,5,4,"ועדת המשנה לעניין צו העונשין (עניין סודי) התשע""ו (2016 - צו קצא""א)","Subcommittee for the 
+Penal Order
+",,2015-05-30T00:00:00,,,,,,,,
+617,5,28,ועדת המשנה לעניין בדיקת תשלומי מזונות מהמוסד לביטוח לאומי,Subcommittee for Examining Alimony Payments of the National Insurance Institute,,2016-11-01T00:00:00,,,,,,,,
+618,5,4,ועדת המשנה לעניין מעקב אחר ניתוק החקיקה ממצב חירום,Subcommittee for Monitoring the Detachment of Legislation from the State of Emergency  ,,2015-05-30T00:00:00,,,,,,,,
+619,6,,"ועדה משותפת לוועדת החוקה וחו""ב לדיון בהצעות חוק ההסדרה",Joint Committee of the Constitution Committee and the Foreign Affairs and Defense Committee to Discuss the Regulation Bills ,,2016-11-21T00:00:00,,,,,,,,
+620,6,,"ועדה משותפת חו""ב וכספים לנושא פרק ה, סעיפים 30 עד 41 (עקרונות לקביעת תקציב הביטחון)",Joint defense budget committee sections 30-41,,2016-11-24T00:00:00,,,,,,,,
+622,6,,"ועדה משותפת של ועדת חוקה חוק ומשפט, ועדת החוץ והביטחון לדיון בהצ""ח הסדרת ההתיישבות ביהודה והשומרון (פ/3459/20)",Joint Committee to Discuss the Bill for the Regulation of Settlement in Judea and Samaria,,2016-12-06T00:00:00,,,,,,,,exception generating committees: invalid response status code: 500
+623,5,2,"פרק י' (תשתיות להולכה ולאחסון של נפט), מתוך הצעת חוק ההתייעלות הכלכלית (תיקוני חקיקה להשגת יעדי התקציב לשנות 2017 ו-2018), התשע""ז-2016",Subcommittee to Discuss Chapter 10 (Infrastructure for the Transport and Storage of Crude Oil) of the Economic Arrangements Bill,,2017-01-11T00:00:00,,,,,,,,
+624,6,,ועדה משותפת לוועדת החוקה והמדע לדיון בהצעות חוק בנושא הסרת תוכן שפרסומו מהווה עבירה מרשת האינטרנט,Joint Committee for Discussion on the Removal of Illegal Content from the Internet Bill,,2017-01-31T00:00:00,,,,,,,,
+625,3,,"ועדה מיוחדת לפרשת היעלמותם של ילדי תימן, מזרח והבלקן","Special Committee on the Disappearance of Children from Yemen, the East and the Balkans",,2017-02-07T00:00:00,,"בין השאר, תפקח הוועדה על יישום החלטת הממשלה בעניין חשיפת החומרים בפרשת היעלמותם של ילדי תימן, מזרח והבלקן, וכן על פעולות הממשלה להגיע לחקר האמת בסוגיה. הוועדה גם תרכז תלונות של משפחות ותעסוק בנושא מאגר DNA למציאת התאמה בין קרובי משפחה.","The committee will monitor the implementation of the government's decision to publish material related to the disappearance of children from Yemen, the East and the Balkans, as well as the government's actions to uncover the truth. The committee will also concentrate the complaints lodged by the families and deal with the DNA database used to detect genetic correlation among relatives.  ",,,,MissingChildren,
+626,6,,"ועדה משותפת כלכלה ופנים לדיון בהצ""ח תאגידי מים וביוב",Joint Committee on the Water and Sewage Corporations Bill ,,2017-02-22T00:00:00,,,,,,,,
