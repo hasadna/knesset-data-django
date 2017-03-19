@@ -20,5 +20,5 @@ setup(
     license='GPLv3',
     url='https://github.com/hasadna/knesset-data-django',
     packages=find_packages(exclude=["tests", "test.*"]),
-    install_requires=['knesset-data', 'django'],
+    install_requires=['knesset-data', 'django', 'knesset-datapackage'],
 )

@@ -34,6 +34,20 @@ For example, the following commands will fill in committees data in your DB
 * `(knesset-data-django) $ ./manage.py shell_plus`
 * `> CommitteeMeeting.objects.count()`
 
+## Running the automated tests
+
+* `(knesset-data-django) $ ./manage.py test`
+
+If you want to save time on tests or inspect the test db, you can use REUSE_DB parameter:
+
+* First time, run:
+  * `KEEP_DB=1 ./manage.py test`
+
+* This keeps the db at test.db and you can re-run the tests on the same DB using:
+  * `REUSE_DB=1 ./manage.py test`
+
+* Some changes require creating a fresh DB, you can just delete test.db and run `KEEP_DB=1 ./manage.py test`
+
 ## Integrating with existing Django project (AKA Open Knesset)
 
 ##### preconditions / assumptions

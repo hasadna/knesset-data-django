@@ -1,6 +1,6 @@
 # encoding: utf-8
 # Django settings for knesset-data-django testing app
-import os
+import os, sys
 from knesset_data_django import KNESSET_DATA_DJANGO_APPS
 
 DEBUG = True
@@ -11,9 +11,13 @@ SECRET_KEY = "=/30yw[tzR<TYgUtYH9jwq>)xJfWJ#l9ky!^s_ob#1Q8)MUN,p"
 DATABASES = {
     'default': {
         'NAME': 'dev.db',
+        'TEST_NAME': 'test.db',
         'ENGINE': 'django.db.backends.sqlite3'
     },
 }
+
+if os.environ.get("USE_TEST_DB") == "1":
+    DATABASES["default"]["NAME"] = DATABASES["default"]["TEST_NAME"]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

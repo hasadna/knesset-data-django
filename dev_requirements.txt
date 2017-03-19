@@ -3,3 +3,4 @@
 -e .
 -e ../knesset-data-python
 -e ../Open-Knesset
+-e ../knesset-data-datapackage

@@ -35,5 +35,8 @@ nosetests.xml
 .pydevproject
 
 /dev.db
-/data
+/data/*
 /.idea
+/*.bak
+/*.log
+test.db

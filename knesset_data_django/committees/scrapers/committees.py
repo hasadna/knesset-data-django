@@ -1,57 +1,61 @@
 # encoding: utf-8
 from knesset_data_django.common.exceptions import TooManyObjectsException
-from knesset_data.dataservice.committees import Committee as DataserviceCommittee
-from ...common.scrapers.base_scraper import BaseScraper
+from ...common.scrapers.base_datapackage_scraper import BaseDatapackageScraper
 from ..models import Committee
 
 
-class CommitteesScraper(BaseScraper):
+class CommitteesScraper(BaseDatapackageScraper):
+    DATAPACKAGE_RESOURCE_NAME = "committees"
 
-    def _get_all_active_dataservice_committees(self, has_portal_link):
-        return DataserviceCommittee.get_all_active_committees(has_portal_link=has_portal_link)
-
-    def _update_or_create_from_dataservice(self, dataservice_committee):
+    def _handle_datapackage_item(self, committee_data):
         """
         updates or create a committee object based on dataservice_committee
         :param dataservice_committee: dataservice committee object
         :return: tuple(committee, created) the updated or created committee model object and True/False if it was created
         """
-        committee_id = dataservice_committee.id
+        committee_knesset_id = committee_data["id"]
         committee_model_data = {
-            "name": dataservice_committee.name,
-            "knesset_type_id": dataservice_committee.type_id,
-            "knesset_parent_id": dataservice_committee.parent_id,
-            "name_eng": dataservice_committee.name_eng,
-            "name_arb": dataservice_committee.name_arb,
-            "start_date": dataservice_committee.begin_date,
-            "end_date": dataservice_committee.end_date,
-            "knesset_description": dataservice_committee.description,
-            "knesset_description_eng": dataservice_committee.description_eng,
-            "knesset_description_arb": dataservice_committee.description_arb,
-            "knesset_note": dataservice_committee.note,
-            "knesset_note_eng": dataservice_committee.note_eng,
-            "knesset_portal_link": dataservice_committee.portal_link,
+            "name": committee_data["name"],
+            "knesset_type_id": committee_data["type_id"],
+            "knesset_parent_id": committee_data["parent_id"],
+            "name_eng": committee_data["name_eng"],
+            "name_arb": committee_data["name_arb"],
+            "start_date": committee_data["begin_date"],
+            "end_date": committee_data["end_date"],
+            "knesset_description": committee_data["description"],
+            "knesset_description_eng": committee_data["description_eng"],
+            "knesset_description_arb": committee_data["description_arb"],
+            "knesset_note": committee_data["note"],
+            "knesset_note_eng": committee_data["note_eng"],
+            "knesset_portal_link": committee_data["portal_link"],
         }
-        committee_qs = Committee.objects.filter(knesset_id=committee_id)
+        committee_qs = Committee.objects.filter(knesset_id=committee_knesset_id)
         committee_qs_count = committee_qs.count()
         if committee_qs_count == 1:
             committee = committee_qs.first()
-            [setattr(committee, k, v) for k, v in committee_model_data.iteritems()]
-            created = False
+            needs_update = False
+            for attr, scraped_value in committee_model_data.iteritems():
+                db_value = getattr(committee, attr)
+                if db_value != scraped_value:
+                    needs_update=True
+                    break
+            if needs_update:
+                [setattr(committee, k, v) for k, v in committee_model_data.iteritems()]
+                created, updated, message = False, True, "detected a change in one of the fields, updating committee"
+            else:
+                created, updated, message = False, False, "existing meeting in DB, no change"
         elif committee_qs_count == 0:
-            committee = Committee(id=committee_id, **committee_model_data)
-            created = True
+            committee = Committee(knesset_id=committee_knesset_id, **committee_model_data)
+            created, updated, message = True, False, "created meeting"
         else:
-            raise TooManyObjectsException()
-        committee.save()
-        return committee, created
+            raise TooManyObjectsException("committee_knesset_id={}, matching db ids: {}".format(committee_knesset_id, [c.id for c in committee_qs]))
+        if updated or created:
+            committee.save()
+        return committee, created, updated, message
 
-    def scrape_active_committees(self):
-        """
-        updates the active committees in the DB
-        creates new committees / updates data for existing committees
-        :return: generator of return values from _update_or_create_from_dataservice
-        """
-        return (self._update_or_create_from_dataservice(dataservice_committee)
-                for dataservice_committee
-                in self._get_all_active_dataservice_committees(has_portal_link=False))
+    def log_return_value(self, committee, created, updated, message):
+        prefix = u"committee {} - {}".format(committee.id, committee.name)
+        if created or updated:
+            self.logger.info(u"{}: {}".format(prefix, message))
+        else:
+            self.logger.debug(u'{}: {}'.format(prefix, message))

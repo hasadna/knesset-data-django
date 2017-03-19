@@ -1,0 +1,7 @@
+committee_id,meeting_id,text,parts,original,scraper_errors,
+1,2014304,committee_1/2014304_2017-02-15_09-30-00/protocol.txt,committee_1/2014304_2017-02-15_09-30-00/protocol.csv,committee_1/2014304_2017-02-15_09-30-00/original.doc,,
+1,2009751,,,,"ERROR: SOCKSHTTPConnectionPool(host='fs.knesset.gov.il', port=80): Read timed out. (read timeout=10), ERROR: SOCKSHTTPConnectionPool(host='fs.knesset.gov.il', port=80): Read timed out. (read timeout=10), ERROR: SOCKSHTTPConnectionPool(host='fs.knesset.gov.il', port=80): Read timed out. (read timeout=10), ERROR: SOCKSHTTPConnectionPool(host='fs.knesset.gov.il', port=80): Read timed out. (read timeout=10)",
+1,2007904,committee_1/2007904_2016-10-31_11-45-00/protocol.txt,committee_1/2007904_2016-10-31_11-45-00/protocol.csv,committee_1/2007904_2016-10-31_11-45-00/original.doc,,
+2,2014012,committee_2/2014012_2017-02-13_13-30-00/protocol.txt,committee_2/2014012_2017-02-13_13-30-00/protocol.csv,committee_2/2014012_2017-02-13_13-30-00/original.doc,,
+2,2013587,committee_2/2013587_2017-02-06_13-00-00/protocol.txt,committee_2/2013587_2017-02-06_13-00-00/protocol.csv,committee_2/2013587_2017-02-06_13-00-00/original.doc,,
+619,2009468,,,,,got some errors!
