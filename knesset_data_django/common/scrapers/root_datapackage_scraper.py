@@ -160,7 +160,7 @@ class RootDatapackageScraper(BaseScraper):
         # url looks someting like this: https://s3.amazonaws.com/knesset-data/datapackage_last_5_days_2017-02-23.zip
         # output path will look something like this: data/datapackage_last_5_days_2017-02-23.zip
         zip_file_name = os.path.join(settings.DATA_ROOT, datapackage_zip_url.split('/')[-1])
-        os.rename(temp_file, zip_file_name)
+        shutil.move(temp_file, zip_file_name)
         return zip_file_name, self.load_from_file(zip_file_name)
 
     def log_load_from_url_return_value(self, load_from_url_return_value):
