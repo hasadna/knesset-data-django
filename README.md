@@ -17,6 +17,9 @@ Generally, it is meant to contain well documented and tested code that handles t
 
 **Just want to use the project from Open Knesset?** [Check out the usage guide](/USAGE.md)
 
+### Known issues / FAQ / Common problems
+* [Why does this project have a setting file?](https://github.com/hasadna/knesset-data-django/issues/5)
+
 ### Documentation
 
 * [Usage guide](/USAGE.md) - How to use the knesset-data-django in other projects (e.g. open knesset)
