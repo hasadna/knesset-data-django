@@ -33,6 +33,13 @@ from ...mks.scrapers.members import MembersScraper
 
 class MockRootDatapackageScraper(RootDatapackageScraper):
 
+    SCRAPERS = (
+        "knesset_data_django.mks.scrapers.members.MembersScraper",
+        "knesset_data_django.committees.scrapers.committees.CommitteesScraper",
+        "knesset_data_django.committees.scrapers.committee_meetings.CommitteeMeetingsScraper",
+        "knesset_data_django.committees.scrapers.committee_meeting_protocols.CommitteeMeetingProtocolsScraper",
+    )
+
     def _scrape_instance_value(self, from_datapackage, fetch_kwargs, child_scraper_instance, return_value):
         if isinstance(child_scraper_instance, MembersScraper) and return_value[0] and return_value[1]:
             # add some fake data to allow committee meetings to detect it in attending members

@@ -17,6 +17,9 @@ class RootDatapackageScraper(BaseScraper):
         "knesset_data_django.committees.scrapers.committees.CommitteesScraper",
         "knesset_data_django.committees.scrapers.committee_meetings.CommitteeMeetingsScraper",
         "knesset_data_django.committees.scrapers.committee_meeting_protocols.CommitteeMeetingProtocolsScraper",
+        "knesset_data_django.kns_persons.scrapers.PersonScraper",
+        "knesset_data_django.kns_persons.scrapers.PersonPositionScraper",
+        "knesset_data_django.kns_persons.scrapers.PersonToPositionScraper",
     )
 
     def __init__(self, **kwargs):
@@ -178,9 +181,14 @@ class RootDatapackageScraper(BaseScraper):
                 scraper_instance, scrape_return_values = scrape_class_return_value
                 if scraper_instance:
                     i = 0
-                    for scrape_return_value in scrape_return_values:
-                        scraper_instance.log_return_value(*scrape_return_value)
-                        i += 1
+                    try:
+                        for scrape_return_value in scrape_return_values:
+                            scraper_instance.log_return_value(*scrape_return_value)
+                            i += 1
+                    except Exception as e:
+                        message = "unexpected exception parsing return value for {}".format(scraper_class)
+                        self.logger.exception(message)
+                        raise Exception(message)
                     self.logger.info("processed {} items for scraper {}".format(i, scraper_class.__name__))
                 else:
                     self.logger.debug("skipping scraper {}".format(scraper_class.__name__))
