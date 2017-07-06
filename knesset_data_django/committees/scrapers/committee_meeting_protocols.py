@@ -1,3 +1,4 @@
+from knesset_data_django.committees.protocol_part_builder import CommitteeProtocolPartBuilder
 from ...common.scrapers.base_datapackage_scraper import BaseDatapackageScraper
 from ...mks.utils import get_all_mk_names
 from ..models import CommitteeMeeting, ProtocolPart
@@ -66,20 +67,29 @@ class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
             protocol_ok, protocol_message = False, "meeting has existing protocol parts, will not reparse"
         else:
             protocol_ok = True
+            mks, mk_names = self._get_all_mk_names()
             with open(parts_file_path) as f:
                 parts = csv.reader(f)
                 assert parts.next() == ['header', 'body']
-                protocol_parts = [ProtocolPart(meeting=meeting, order=i + 1,
-                                               header=part[0].decode('utf8'), body=part[1].decode('utf8'))
-                                  for i, part in enumerate(parts)]
+                # protocol_parts = [ProtocolPart(meeting=meeting, order=i + 1,
+                #                                header=part[0].decode('utf8'), body=part[1].decode('utf8'))
+                #                   for i, part in enumerate(parts)]
+                protocol_parts = [
+                    CommitteeProtocolPartBuilder(meeting=meeting,
+                                                 order=i + 1,
+                                                 header=part[0].decode('utf8'),
+                                                 body=part[1].decode('utf8'),
+                                                 mks=mks).build() for i, part in enumerate(parts)]
             self._save_protocol_parts(meeting, protocol_parts)
             protocol_message = "inserted protocol parts"
-            mks, mk_names = self._get_all_mk_names()
+
             try:
                 find_attending_members(meeting, mks, mk_names)
                 meeting.save()
                 attended_ok, attended_message = True, "updated meeting attending members"
-                self.logger.debug("committee {}, meeting {} - updated attending members".format(meeting.committee.knesset_id, meeting.knesset_id))
+                self.logger.debug(
+                    "committee {}, meeting {} - updated attending members".format(meeting.committee.knesset_id,
+                                                                                  meeting.knesset_id))
             except Exception, e:
                 self.logger.exception(e)
                 attended_ok, attended_message = False, "failed to updated attending members: {}".format(e)
@@ -99,20 +109,28 @@ class CommitteeMeetingProtocolsScraper(BaseDatapackageScraper):
             if not text_updated:
                 parts_updated, parts_message, attended_updated, attended_message = False, "protocol text not updated, so skipping parts updating as well", None, None
             else:
-                parts_updated, parts_message, attended_updated, attended_message = self._update_protocol_parts(meeting, parts_file_path)
+                parts_updated, parts_message, attended_updated, attended_message = self._update_protocol_parts(meeting,
+                                                                                                               parts_file_path)
         return ok, error, meeting_data, text_updated, text_message, parts_updated, parts_message, attended_updated, attended_message
 
-    def log_return_value(self, ok, error, meeting_data, text_updated, text_message, parts_updated, parts_message, attended_updated, attended_message):
+    def log_return_value(self, ok, error, meeting_data, text_updated, text_message, parts_updated, parts_message,
+                         attended_updated, attended_message):
         if ok:
             self.logger.debug(text_message)
             self.logger.debug(parts_message)
             if text_updated and parts_updated:
-                self.logger.info("committee {} meeting {}: updated committee meeting protocol text and parts".format(meeting_data["committee_id"], meeting_data["meeting_id"]))
+                self.logger.info("committee {} meeting {}: updated committee meeting protocol text and parts".format(
+                    meeting_data["committee_id"], meeting_data["meeting_id"]))
             elif text_updated:
-                self.logger.error("committee {} meeting {}: updated committee meeting protocol text only".format(meeting_data["committee_id"], meeting_data["meeting_id"]))
+                self.logger.error("committee {} meeting {}: updated committee meeting protocol text only".format(
+                    meeting_data["committee_id"], meeting_data["meeting_id"]))
             elif parts_updated:
-                self.logger.error("committee {} meeting {}: updated committee meeting protocol parts only".format(meeting_data["committee_id"], meeting_data["meeting_id"]))
+                self.logger.error("committee {} meeting {}: updated committee meeting protocol parts only".format(
+                    meeting_data["committee_id"], meeting_data["meeting_id"]))
             else:
-                self.logger.debug("committee {} meeting {}: no update to protocol text or parts".format(meeting_data["committee_id"], meeting_data["meeting_id"]))
+                self.logger.debug(
+                    "committee {} meeting {}: no update to protocol text or parts".format(meeting_data["committee_id"],
+                                                                                          meeting_data["meeting_id"]))
         else:
-            self.logger.info("committee {} meeting {}: error scraping committee meeting protocol: {}".format(meeting_data["committee_id"], meeting_data["meeting_id"], error))
+            self.logger.info("committee {} meeting {}: error scraping committee meeting protocol: {}".format(
+                meeting_data["committee_id"], meeting_data["meeting_id"], error))
