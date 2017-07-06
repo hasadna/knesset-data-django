@@ -32,7 +32,6 @@ from ...mks.scrapers.members import MembersScraper
 
 
 class MockRootDatapackageScraper(RootDatapackageScraper):
-
     def _scrape_instance_value(self, from_datapackage, fetch_kwargs, child_scraper_instance, return_value):
         if isinstance(child_scraper_instance, MembersScraper) and return_value[0] and return_value[1]:
             # add some fake data to allow committee meetings to detect it in attending members
@@ -40,13 +39,13 @@ class MockRootDatapackageScraper(RootDatapackageScraper):
             member.current_party = Party.objects.filter(name=u"העבודה").first()
             member.is_current = True
             member.save()
-            membership = Membership(member=member, party=member.current_party, start_date=datetime.date(2000, 2, 2), position=6)
+            membership = Membership(member=member, party=member.current_party, start_date=datetime.date(2000, 2, 2),
+                                    position=6)
             membership.save()
         return return_value
 
 
 class DatapackageTestCase(SimpleTestCase):
-
     TEST_MKS = {896: u'מיקי רוזנטל',
                 35: u'משה גפני',
                 939: u'רחל עזריה',
@@ -70,10 +69,11 @@ class DatapackageTestCase(SimpleTestCase):
                           knesset=knesset)
             party.save()
 
-
     def assert_clean_db(self):
         self.assertEqual(Member.objects.filter(id__in=self.TEST_MKS.keys()).count(), 0)
-        self.assertEqual(ProtocolPart.objects.filter(meeting__in=CommitteeMeeting.objects.filter(committee__knesset_id=2)).count(), 0)
+        self.assertEqual(
+            ProtocolPart.objects.filter(meeting__in=CommitteeMeeting.objects.filter(committee__knesset_id=2)).count(),
+            0)
         self.assertEqual(CommitteeMeeting.objects.filter(committee_id=2).count(), 0)
         self.assertEqual(Committee.objects.filter(id=2).count(), 0)
 
@@ -84,7 +84,8 @@ class DatapackageTestCase(SimpleTestCase):
             root_datapackage_scraper.unlock_datapackage()
             root_datapackage_scraper.load_from_directory(os.path.join(os.path.dirname(__file__), "datapackage"))
             self.assertEquals([r.getMessage() for r in logger.info_records],
-                              ["loading from local directory '{}'".format(os.path.join(os.path.dirname(__file__), "datapackage"))])
+                              ["loading from local directory '{}'".format(
+                                  os.path.join(os.path.dirname(__file__), "datapackage"))])
         root_datapackage_scraper.logger = logger = MockLogger()
         root_datapackage_scraper.log_scrape_return_value(root_datapackage_scraper.scrape_all(True))
         info_messages = [u"{}".format(r.getMessage()) for r in logger.info_records]
@@ -93,7 +94,8 @@ class DatapackageTestCase(SimpleTestCase):
         self.assertIn("processed 34 items for scraper CommitteeMeetingsScraper", info_messages)
         self.assertIn("processed 6 items for scraper CommitteeMeetingProtocolsScraper", info_messages)
         # for debugging (add -s to see output when tests pass)
-        print("\n".join([msg for msg in [u"{}: {}".format(r.levelname, r.getMessage()) for r in logger.all_records] if "2014012" in msg or "896" in msg]))
+        print("\n".join([msg for msg in [u"{}: {}".format(r.levelname, r.getMessage()) for r in logger.all_records] if
+                         "2014012" in msg or "896" in msg]))
 
     def assert_model(self, model_instance, expected_dict):
         for field, expected_value in expected_dict.items():
@@ -120,7 +122,8 @@ class DatapackageTestCase(SimpleTestCase):
                                               {"date_string": "13/02/2017",
                                                "date": datetime.date(2017, 2, 13),
                                                "topics.strip": u"הוראות ליישום משטר כושר פירעון כלכלי של חברת ביטוח מבוסס Solvency II בהתאם לסעיף 35(ג) לחוק הפיקוח על שירותים פיננסיים (ביטוח), התשמ”א - 1981",
-                                               "datetime": datetime.datetime(2017, 2, 13, 13, 30), # 2017-02-13T13:30:00
+                                               "datetime": datetime.datetime(2017, 2, 13, 13, 30),
+                                               # 2017-02-13T13:30:00
                                                "knesset_id": 2014012,
                                                "src_url": "http://fs.knesset.gov.il//20/Committees/20_ptv_368875.doc"})
 
@@ -130,8 +133,8 @@ class DatapackageTestCase(SimpleTestCase):
         self.assertTrue(u"סדר-היום" == committee_meeting.parts.get(order=2).header)
 
         # committee meeting attending members
-        self.assertEqual({mk.id: mk.name             for mk   in committee_meeting.mks_attended.all()},
-                         {mkid : self.TEST_MKS[mkid] for mkid in [35, 862, 896, 939, 943, 951]})
+        self.assertEqual({mk.id: mk.name for mk in committee_meeting.mks_attended.all()},
+                         {mkid: self.TEST_MKS[mkid] for mkid in [35, 862, 896, 939, 943, 951]})
 
     def test(self):
         self.given_clean_db()
