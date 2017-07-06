@@ -85,8 +85,8 @@ def create_plenum_protocol_parts(meeting, mks=None, mk_names=None):
     tree = ElementTree.fromstring(txt)
     titles = None
     for para in tree.iter('para'):
-        (isBold, txt) = _plenum_parse_para_element(para)
-        t = _plenum_parse_para_text(txt, isBold)
+        (is_bold, txt) = _plenum_parse_para_element(para)
+        t = _plenum_parse_para_text(txt, is_bold)
         titles = _plenum_parse_para(txt, t, titles)
     for title in titles:
         title_header = title['t'].strip()
