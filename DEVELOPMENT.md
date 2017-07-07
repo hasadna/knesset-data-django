@@ -48,6 +48,8 @@ If you want to save time on tests or inspect the test db, you can use REUSE_DB p
 
 * Some changes require creating a fresh DB, you can just delete test.db and run `KEEP_DB=1 ./manage.py test`
 
+Please note that reusing a db between tests is really a bad practice and a bad idea. you might be doing something wrong if you need this feature.
+
 ## Integrating with existing Django project (AKA Open Knesset)
 
 ##### preconditions / assumptions
