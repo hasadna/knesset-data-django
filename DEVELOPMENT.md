@@ -50,6 +50,9 @@ If you want to save time on tests or inspect the test db, you can use REUSE_DB p
 
 Please note that reusing a db between tests is really a bad practice and a bad idea. you might be doing something wrong if you need this feature.
 
+Default test runner disables logging below the warning level. If you need info or debug logs, please change the disable in the KnessetDataDjangoTestRunner class. Be sure not to commit the change.
+
+
 ## Integrating with existing Django project (AKA Open Knesset)
 
 ##### preconditions / assumptions
