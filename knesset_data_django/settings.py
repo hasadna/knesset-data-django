@@ -100,6 +100,8 @@ INSTALLED_APPS = (
 
 LONG_CACHE_TIME = 60
 
+SOUTH_TESTS_MIGRATE = False
+
 TEST_RUNNER = 'knesset_data_django.common.testing.test_runner.KnessetDataDjangoTestRunner'
 
 
