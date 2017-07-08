@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.test import SimpleTestCase
+from django.utils.unittest import skip
+
 from ..scrapers.root_datapackage_scraper import RootDatapackageScraper
 import os
 from ...committees.models import Committee, CommitteeMeeting, ProtocolPart
@@ -137,8 +139,8 @@ class DatapackageTestCase(SimpleTestCase):
                          {mkid: self.TEST_MKS[mkid] for mkid in [35, 862, 896, 939, 943, 951]})
 
     # TODO: make a better test for datapackage scraping (or move to datapackage-pipelines framework already)
-    def test(self):
-        self.skipTest("this is a very fragile test")
+    @skip("this is a very fragile test")
+    def test_datapackage_scraping(self):
         self.given_clean_db()
         self.given_db_initialized_with_required_data()
         self.assert_clean_db()
