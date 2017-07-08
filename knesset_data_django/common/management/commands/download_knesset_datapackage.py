@@ -1,12 +1,6 @@
 # encoding: utf-8
 from knesset_data_django.common.management_commands.base_no_args_command import BaseNoArgsCommand
 from optparse import make_option
-from knesset_datapackage.root import RootDatapackage
-from django.conf import settings
-import os, shutil
-import requests
-from tempfile import mktemp
-from importlib import import_module
 from ...scrapers.root_datapackage_scraper import RootDatapackageScraper
 
 

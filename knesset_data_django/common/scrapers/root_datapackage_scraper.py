@@ -1,7 +1,7 @@
 from .base_scraper import BaseScraper
 from django.conf import settings
 import os
-from knesset_datapackage.root import RootDatapackage
+from .root_datapackage import RootDatapackage
 from importlib import import_module
 import shutil
 from tempfile import mktemp

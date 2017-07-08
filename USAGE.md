@@ -8,18 +8,12 @@ Best way is to download a prepared datapackage, knesset-data-datapackage project
 
 Alternatively, you can make a datapackage locally, but bear in mind that Knesset blocks some IPs sometimes, so it might not always work.
 
-* To create a datapackage, you can use the `make_knesset_datapackage` command which is available from knesset-data-datapackage module.
-* To download a prepared datapackage, use the `./manage.py download_knesset_datapackage` command with --url param
+* to create a datapackage you need to pip install [knesset-data-datapackage](https://github.com/hasadna/knesset-data-datapackage)
+* you can then use the make_knesset_datapackage command, try `make_knesset_datapackage --help`
 
 See Available commands section below for more details.
 
 ## Available management commands
-
-* `make_knesset_datapackage`
-  * creates the datapackage in data/datapackage directory
-  * check the options (`--help`) to see how you can modify the datapackage creation
-  * if you don't pass the --zip option it will create the datapackage ready to be scraped:
-    * `./manage.py download_knesset_datapackage --scrape`
 
 * `./manage.py download_knesset_datapackage`
   * Supports downloading or extracing a previously prepared datapackage file
