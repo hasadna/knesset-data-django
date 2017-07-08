@@ -1,6 +1,5 @@
 -r requirements.txt
 
 -e ../knesset-data-python
--e ../knesset-data-datapackage
 -e ../Open-Knesset
 -e .

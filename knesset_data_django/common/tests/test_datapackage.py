@@ -136,7 +136,9 @@ class DatapackageTestCase(SimpleTestCase):
         self.assertEqual({mk.id: mk.name for mk in committee_meeting.mks_attended.all()},
                          {mkid: self.TEST_MKS[mkid] for mkid in [35, 862, 896, 939, 943, 951]})
 
+    # TODO: make a better test for datapackage scraping (or move to datapackage-pipelines framework already)
     def test(self):
+        self.skipTest("this is a very fragile test")
         self.given_clean_db()
         self.given_db_initialized_with_required_data()
         self.assert_clean_db()

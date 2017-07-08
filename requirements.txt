@@ -53,3 +53,4 @@ subprocess32==3.2.7
 backports.tempfile==1.0rc1
 demjson==2.2.4
 factory-boy==2.8.1
+datapackage==0.8.9
