@@ -53,20 +53,21 @@ class Resource(object):
     def fetch_from_datapackage(self, **kwargs):
         schema = Schema(self.resource.descriptor["schema"])
         path = self.get_path("{}.csv".format(self.get_path()))
-        with open(path) as f:
-            csv_reader = csv.reader(f)
-            next(csv_reader)  # skip header line
-            for row in csv.reader(f):
-                cast_row = OrderedDict()
-                for i, val in enumerate(row):
-                    field = schema.fields[i]
-                    if field.type == "string":
-                        val = val.decode("utf-8")
-                    elif field.type == "datetime" and val != "":
-                        val = "{}Z".format(val)
-                    try:
-                        val = field.cast_value(val)
-                    except Exception as e:
-                        raise Exception("Failed to cast value for field '{}' ({}) with value '{}': {}".format(field.name, field.type, val, e.message))
-                    cast_row[field.name] = val
-                yield cast_row
+        if os.path.exists(path):
+            with open(path) as f:
+                csv_reader = csv.reader(f)
+                next(csv_reader)  # skip header line
+                for row in csv.reader(f):
+                    cast_row = OrderedDict()
+                    for i, val in enumerate(row):
+                        field = schema.fields[i]
+                        if field.type == "string":
+                            val = val.decode("utf-8")
+                        elif field.type == "datetime" and val != "":
+                            val = "{}Z".format(val)
+                        try:
+                            val = field.cast_value(val)
+                        except Exception as e:
+                            raise Exception("Failed to cast value for field '{}' ({}) with value '{}': {}".format(field.name, field.type, val, e.message))
+                        cast_row[field.name] = val
+                    yield cast_row
