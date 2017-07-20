@@ -32,10 +32,10 @@ class CommitteeProtocolPartBuilder(object):
         self.body = body
 
     def build(self):
-        mapped_names_ids = create_person_name_mk_id_map(self.mks)
-        header_text, speaker_id = ProtocolHeaderParser(self.header, mapped_names_ids).parse()
+        # mapped_names_ids = create_person_name_mk_id_map(self.mks)
+        # header_text, speaker_id = ProtocolHeaderParser(self.header, mapped_names_ids).parse()
         return ProtocolPart(meeting=self.committee_meeting,
                             order=self.order,
                             body=self.body,
-                            speaker_id=speaker_id,
+                            # speaker_id=speaker_id,
                             header=self.header)
