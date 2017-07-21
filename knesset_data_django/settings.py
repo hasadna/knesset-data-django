@@ -2,6 +2,10 @@
 # Django settings for knesset-data-django testing app
 import os, sys
 from knesset_data_django import KNESSET_DATA_DJANGO_APPS
+import logging
+logging.basicConfig(level=logging.INFO, stream=sys.stdout,
+                    format="%(asctime)s:%(name)s:%(lineno)d:%(levelname)s:%(message)s")
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
