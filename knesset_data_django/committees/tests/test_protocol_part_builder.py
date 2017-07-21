@@ -14,7 +14,6 @@ class CommitteeMeetingFactory(factory.django.DjangoModelFactory):
     committee_id = 1
     date = datetime.datetime.now().date()
 
-
 class ProtocolPartBuilderTestCase(TestCase):
     def setUp(self):
         super(ProtocolPartBuilderTestCase, self).setUp()
@@ -35,6 +34,7 @@ class ProtocolPartBuilderTestCase(TestCase):
         self.assertEqual(part_to_check.header, expected_header)
 
     def test_protocol_part_builder_creates_protocl_parts_with_speaker_id(self):
+        self.skipTest("temporarily removed speaker_id because it was causing problems, see #14")
         knesset = TestApp.given_knesset_exists(number=19)
         party = TestApp.given_party_exists_in_knesset('labor', knesset)
         mk = TestApp.given_member_exists_in_knesset(u'סתיו שפיר', party=party)
