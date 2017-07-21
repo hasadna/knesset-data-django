@@ -15,10 +15,10 @@ def create_person_name_mk_id_map(mks_ids):
     aliases = PersonAlias.objects.filter(person__in=persons).select_related()
     persons_map = dict()
     for person in persons:
-        persons_map[person.name] = person.mk.id
+        persons_map[person.name] = person.id
 
     for alias in aliases:
-        persons_map[alias.name] = alias.person.mk.id
+        persons_map[alias.name] = alias.person.id
 
     return persons_map
 
