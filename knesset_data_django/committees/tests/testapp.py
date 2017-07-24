@@ -29,11 +29,7 @@ class TestApp(object):
     @classmethod
     def given_member_exists_in_knesset(cls, member_name, party, start_date=ten_days_ago.date(), end_date=None):
         member, create = Member.objects.get_or_create(name=member_name, start_date=ten_days_ago.date())
-        # membership, create = Membership.objects.get_or_create(member=member, party=party,
-        #                                                       start_date=party.knesset.start_date)
-        # if end_date:
-        #     membership.end_date = end_date
-        #     membership.save()
+
         return member
 
     @classmethod
